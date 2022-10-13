@@ -50,49 +50,49 @@ if ($data = $messageform->get_data()) {
     if (isset($dark) && !empty($dark)) {
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
     }else{
-        set_user_preference('theme_celene4boost_mode', '', $USER->id);
+        unset_user_preference('theme_celene4boost_mode', $USER->id);
     }
 
     if (isset($dys) && !empty($dys)) {
         set_user_preference('theme_celene4boost_dys', 'dys', $USER->id);
     }else{
-        set_user_preference('theme_celene4boost_dys', '', $USER->id);
+        unset_user_preference('theme_celene4boost_dys', $USER->id);
     }
 
     if (isset($parkinson) && !empty($parkinson)) {
         set_user_preference('theme_celene4boost_parkinson', 'parkinson', $USER->id);
     }else{
-        set_user_preference('theme_celene4boost_parkinson', '', $USER->id);
+        unset_user_preference('theme_celene4boost_parkinson', $USER->id);
     }
 
     if(isset($ls) && !empty($ls)){
         if($ls >= 1){
           set_user_preference('theme_celene4boost_letter', $ls, $USER->id);
         }else{
-            set_user_preference('theme_celene4boost_letter', '', $USER->id);
+            unset_user_preference('theme_celene4boost_letter', $USER->id);
         }
     }else{
-        set_user_preference('theme_celene4boost_letter', '', $USER->id);
+        unset_user_preference('theme_celene4boost_letter', $USER->id);
     }
 
     if(isset($ws) && !empty($ws)){
         if($ws >= 1){
           set_user_preference('theme_celene4boost_word', $ws, $USER->id);
         }else{
-            set_user_preference('theme_celene4boost_word', '', $USER->id);
+            unset_user_preference('theme_celene4boost_word', $USER->id);
         }
     }else{
-        set_user_preference('theme_celene4boost_word', '', $USER->id);
+        unset_user_preference('theme_celene4boost_word', $USER->id);
     }
 
     if(isset($linesp) && !empty($linesp)){
         if($linesp >= 1){
           set_user_preference('theme_celene4boost_line', $linesp, $USER->id);
         }else{
-            set_user_preference('theme_celene4boost_line', '', $USER->id);
+            unset_user_preference('theme_celene4boost_line', $USER->id);
         }
     }else{
-        set_user_preference('theme_celene4boost_line', '', $USER->id);
+        unset_user_preference('theme_celene4boost_line', $USER->id);
     }
 }
 

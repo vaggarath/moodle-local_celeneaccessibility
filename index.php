@@ -35,9 +35,19 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title($SITE->fullname);
 
 $PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
+/**
+ * get_user_preferences($nom, $defaultValue, $userId)
+ */
+$customdata = array('options' => array(
+    'dark' => get_user_preferences('theme_celene4boost_mode', null, $USER->id),
+    'dys' => get_user_preferences('theme_celene4boost_dys', null, $USER->id),
+    'parkinson' => get_user_preferences('theme_celene4boost_parkinson', null, $USER->id),
+    'letter' => get_user_preferences('theme_celene4boost_letter', null, $USER->id),
+    'word' => get_user_preferences('theme_celene4boost_word', null, $USER->id),
+    'line' => get_user_preferences('theme_celene4boost_line', null, $USER->id),
+));
 
-
-$messageform = new local_celeneaccessibility_options_form();
+$messageform = new local_celeneaccessibility_options_form(null, $customdata);
 
 if ($messageform->is_cancelled()){
 

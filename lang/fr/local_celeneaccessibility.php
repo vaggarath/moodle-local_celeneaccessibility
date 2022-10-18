@@ -47,3 +47,4 @@ $string['defaultdys']='Police d\'écriture OpenDys';
 $string['defaultparkinson']='Troubles moteurs (gestes imprécis)';
 $string['menuname']='Accessibilité';
 $string['reset']='Réinitialiser';
+$string['word-spacing']='Espacement entre les mots';

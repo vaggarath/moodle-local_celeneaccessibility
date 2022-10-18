@@ -45,3 +45,5 @@ $string['letterspacing_help'] = 'Cet élément peut avoir une incidence sur l\'a
 $string['letterspacing'] = '';
 $string['defaultdys']='Police d\'écriture OpenDys';
 $string['defaultparkinson']='Troubles moteurs (gestes imprécis)';
+$string['menuname']='Accessibilité';
+$string['reset']='Réinitialiser';

@@ -23,7 +23,7 @@ require_once("../../config.php");
 require_once($CFG->libdir . '/adminlib.php');
 require_once($CFG->dirroot. '/local/celeneaccessibility/options_form.php');
 
-
+require_login();
 $context = context_system::instance();
 
 
@@ -34,12 +34,23 @@ $PAGE->set_url('/local/celeneaccessibility/index.php');
 $PAGE->set_pagelayout('standard');
 $PAGE->set_title($SITE->fullname);
 
-$PAGE->set_heading("Accessibilité");
-require_login();
+$PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
+
 
 $messageform = new local_celeneaccessibility_options_form();
 
-if ($data = $messageform->get_data()) {
+if ($messageform->is_cancelled()){
+
+    unset_user_preference('theme_celene4boost_mode', $USER->id);
+    unset_user_preference('theme_celene4boost_dys', $USER->id);
+    unset_user_preference('theme_celene4boost_parkinson', $USER->id);
+    unset_user_preference('theme_celene4boost_letter', $USER->id);
+    unset_user_preference('theme_celene4boost_word', $USER->id);
+    unset_user_preference('theme_celene4boost_line', $USER->id);
+
+    redirect(new moodle_url('/local/celeneaccessibility/index.php'));
+
+}elseif ($data = $messageform->get_data()) {
     $dark = required_param('dark', PARAM_TEXT);
     $ls = required_param('letterspacing', PARAM_TEXT);
     $ws = required_param('wordspacing', PARAM_TEXT);
@@ -100,7 +111,6 @@ echo $OUTPUT->header();
 
 if(isloggedin() && !isguestuser()){
     $messageform->display();
-    // var_dump(array($messageform));
 }
 
 echo $OUTPUT->footer();

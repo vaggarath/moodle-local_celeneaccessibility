@@ -5,13 +5,14 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/formslib.php');
 
 class local_celeneaccessibility_options_form extends moodleform{
-    //define form
+    private $darkidarko = null;
+        //define form
     public function definition(){
-        $checkDark = get_user_preferences('theme_celene4boost_mode') == "dark" ? 1 : 0;
+        $checkDark = $this->darkidarko ? 0 : get_user_preferences('theme_celene4boost_mode') === "dark" ? 1 : 0; //test for reset, doesn't work
         $checkDys = get_user_preferences('theme_celene4boost_dys') ? 1 : 0;
-        $checkParkinson = get_user_preferences('theme_celene4boost_parkinson') && get_user_preferences('theme_celene4boost_parkinson') == "parkinson" ? 1 : 0;
-
+        $checkParkinson = get_user_preferences('theme_celene4boost_parkinson') && get_user_preferences('theme_celene4boost_parkinson') === "parkinson" ? 1 : 0;
         $checkLetterSpacing = null;
+
         if(get_user_preferences('theme_celene4boost_letter') && get_user_preferences('theme_celene4boost_letter') === "1"){
             $checkLetterSpacing = "1";
         }elseif(get_user_preferences('theme_celene4boost_letter') && get_user_preferences('theme_celene4boost_letter') === "2"){
@@ -35,20 +36,20 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform = $this->_form; //underscore à ne pas oublier !!
         // Checkbox for darkmode option
 
-        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');//, null, $check
+        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
         $mform->setType('dark', PARAM_BOOL);
         $mform->setDefault('dark', $checkDark);
 
 
         //police dys
 
-        $mform->addElement('advcheckbox', 'dys', get_string('defaultdys', 'local_celeneaccessibility'), '');//, null, $check
+        $mform->addElement('advcheckbox', 'dys', get_string('defaultdys', 'local_celeneaccessibility'), '');
         $mform->setDefault('dys', $checkDys);
         $mform->setType('dys', PARAM_BOOL);
 
         //gestes imprécis
 
-        $mform->addElement('advcheckbox', 'parkinson', get_string('defaultparkinson', 'local_celeneaccessibility'), '');//, null, $check
+        $mform->addElement('advcheckbox', 'parkinson', get_string('defaultparkinson', 'local_celeneaccessibility'), '');
         $mform->addHelpButton('parkinson', 'letterspacing', 'local_celeneaccessibility');
         $mform->setDefault('parkinson', $checkParkinson);
         $mform->setType('parkinson', PARAM_BOOL);
@@ -59,12 +60,11 @@ class local_celeneaccessibility_options_form extends moodleform{
             '1'=>"large",
             '2'=>"larger",
         );
+
         // select for letter spacing
         $selectLetter = $mform->addElement('select', 'letterspacing', get_string('letter-spacing', 'local_celeneaccessibility'), $letterSpacing);
         $mform->addHelpButton('letterspacing', 'letterspacing', 'local_celeneaccessibility');
-        // $mform->setDefault('letterspacing', $checkLetterSpacing);
         $selectLetter->setSelected($checkLetterSpacing);
-        // $mform->setType('letterSpacing', PARAM_ALPHA);
 
         //word spacing now
         $wordSpacing = array(
@@ -89,7 +89,21 @@ class local_celeneaccessibility_options_form extends moodleform{
         $submitlabel = get_string('submit', 'local_celeneaccessibility');
         $mform->addElement('submit', 'submitmessage', $submitlabel);
 
+        $resetlabel = get_string('reset', 'local_celeneaccessibility');
+
+        $mform->addElement('cancel', 'cancelbutton', $resetlabel);
+        $mform->addHelpButton('cancelbutton', 'letterspacing', 'local_celeneaccessibility');
+
         $mform->addElement('html', '<br />  <div class="card text-center w-50 mx-auto"><span class="h3">Zone de test</span>Ceci est un texte d\'exemple <br /> sur plusieurs lignes <br /> vous permettant de mieux voir la différence une fois que vous aurez <br /> validez votre choix </div>');
         // utilisation du form->html
+    }
+
+    public function reset() {
+        $this->darkidarko = true;
+        $checkDys = 0;
+        $checkParkinson = 0;
+        $checkLetterSpacing = null;
+
+        $this->_form->updateSubmission(null, null);
     }
 }

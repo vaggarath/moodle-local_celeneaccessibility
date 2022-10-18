@@ -47,3 +47,5 @@ $string['large']='large';
 
 $string['letterspacing_help'] = 'May impact overall lisibility / display of the website. Doesn\'t impact external files';
 $string['letterspacing'] = '';
+$string['menuname']='Accessibility';
+$string['reset']='Reset';

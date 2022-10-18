@@ -3,7 +3,7 @@
 
 A small plug-in to offer accessibility options to moodle's users.
 
-Works by adding / removing classes to <body>. No custom JS.
+Works by adding / removing classes to the body element. No custom JS.
 
 Needs some minor adjustment on theme's files: 
 - drawers' renderer 

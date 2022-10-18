@@ -39,7 +39,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $letterSpacing = array(
             '0'=>"normal",
             '1'=>"large",
-            '2'=>"larger",
+            '2'=>"plus large",
         );
 
         // select for letter spacing
@@ -51,7 +51,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $wordSpacing = array(
             'normal',
             'large',
-            'larger'
+            'plus large'
         );
         $selectWord = $mform->addElement('select', 'wordspacing', get_string('word-spacing', 'local_celeneaccessibility'), $wordSpacing);
         $mform->addHelpButton('wordspacing', 'letterspacing', 'local_celeneaccessibility');
@@ -61,7 +61,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $lineSpacing = array(
             'normal',
             'large',
-            'larger'
+            'plus large'
         );
         $selectLine = $mform->addElement('select', 'linespacing', get_string('line-spacing', 'local_celeneaccessibility'), $lineSpacing);
         $mform->addHelpButton('linespacing', 'letterspacing', 'local_celeneaccessibility');
@@ -74,6 +74,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addElement('cancel', 'cancelbutton', $resetlabel);
         // $mform->addHelpButton('cancelbutton', 'letterspacing', 'local_celeneaccessibility'); //helpbutton seems unavailable for cancel button
 
-        $mform->addElement('html', '<br />  <div class="card text-center w-50 mx-auto"><span class="h3">Zone de test</span>Ceci est un texte d\'exemple <br /> sur plusieurs lignes <br /> vous permettant de mieux voir la différence une fois que vous aurez <br /> validez votre choix </div>');
+        $mform->addElement('html', '<br />  <div class="card text-center w-50 mx-auto"><span class="h3">Zone de test</span>Ceci est un texte d\'exemple <br /> sur plusieures lignes <br /> vous permettant de mieux voir la différence une fois que vous aurez <br /> validé votre choix </div>');
     }
 }

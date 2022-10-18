@@ -1,7 +1,7 @@
 
 # celene / local_celeneaccessibility
 
-A small plug-in to offer accessibility options to moodle's users.
+A small plug-in to offer accessibility options to moodle's users
 
 Works by adding / removing classes to the body element. No custom JS.
 

@@ -115,6 +115,8 @@ if ($messageform->is_cancelled()){
     }else{
         unset_user_preference('theme_celene4boost_line', $USER->id);
     }
+
+    redirect(new moodle_url('/local/celeneaccessibility/index.php'));
 }
 
 echo $OUTPUT->header();

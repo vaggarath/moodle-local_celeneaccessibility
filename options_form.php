@@ -67,12 +67,23 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addHelpButton('linespacing', 'letterspacing', 'local_celeneaccessibility');
         $selectLine->setSelected($line);
 
+        $mform->addElement('html', '<div class="d-flex justify-content-center">');
         $submitlabel = get_string('submit', 'local_celeneaccessibility');
         $mform->addElement('submit', 'submitmessage', $submitlabel);
 
-        $resetlabel = get_string('reset', 'local_celeneaccessibility');
-        $mform->addElement('cancel', 'cancelbutton', $resetlabel);
-        // $mform->addHelpButton('cancelbutton', 'letterspacing', 'local_celeneaccessibility'); //helpbutton seems unavailable for cancel button
+        if(
+            $checkDark ||
+            $checkDys ||
+            $checkParkinson ||
+            $letter ||
+            $word ||
+            $line
+        ){
+            $resetlabel = get_string('reset', 'local_celeneaccessibility');
+            $mform->addElement('cancel', 'cancelbutton', $resetlabel);
+        }
+
+        $mform->addElement('html', '</div>');
 
         $mform->addElement('html', '<br />  <div class="card text-center w-50 mx-auto"><span class="h3">Zone de test</span>Ceci est un texte d\'exemple <br /> sur plusieures lignes <br /> vous permettant de mieux voir la différence une fois que vous aurez <br /> validé votre choix </div>');
     }

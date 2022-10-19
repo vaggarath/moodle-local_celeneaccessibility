@@ -21,7 +21,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = '2022101100';
+$plugin->version = '2022101102';
 $plugin->requires = 2020110900;
 //$plugin->supported = [310];
 $plugin->component = 'local_celeneaccessibility';

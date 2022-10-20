@@ -12,6 +12,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $checkDark = $this->_customdata['options']['dark'] === "dark" ? 1 : 0;
         $checkDys = $this->_customdata['options']['dys'] === "dys" ? 1 : 0;
         $checkParkinson = $this->_customdata['options']['parkinson'] === "parkinson" ? 1 : 0;
+        $checktts = $this->_customdata['options']['tts'] === "tts" ? 1 : 0;
         $letter = $this->_customdata['options']['letter'];
         $word = $this->_customdata['options']['word'];
         $line = $this->_customdata['options']['line'];
@@ -34,6 +35,11 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addHelpButton('parkinson', 'letterspacing', 'local_celeneaccessibility');
         $mform->setDefault('parkinson', $checkParkinson);
         $mform->setType('parkinson', PARAM_BOOL);
+
+        $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
+        $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
+        $mform->setDefault('tts', $checktts);
+        $mform->setType('tts', PARAM_BOOL);
 
         // letter spacing option
         $letterSpacing = array(
@@ -77,7 +83,8 @@ class local_celeneaccessibility_options_form extends moodleform{
             $checkParkinson ||
             $letter ||
             $word ||
-            $line
+            $line ||
+            $checktts
         ){
             $resetlabel = get_string('reset', 'local_celeneaccessibility');
             $mform->addElement('cancel', 'cancelbutton', $resetlabel);

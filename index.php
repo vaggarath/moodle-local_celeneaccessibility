@@ -40,6 +40,7 @@ $PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
  */
 $customdata = array('options' => array(
     'dark' => get_user_preferences('theme_celene4boost_mode', null, $USER->id),
+    'tts' => get_user_preferences('theme_celene4boost_tts', null, $USER->id),
     'dys' => get_user_preferences('theme_celene4boost_dys', null, $USER->id),
     'parkinson' => get_user_preferences('theme_celene4boost_parkinson', null, $USER->id),
     'letter' => get_user_preferences('theme_celene4boost_letter', null, $USER->id),
@@ -57,11 +58,13 @@ if ($messageform->is_cancelled()){
     unset_user_preference('theme_celene4boost_letter', $USER->id);
     unset_user_preference('theme_celene4boost_word', $USER->id);
     unset_user_preference('theme_celene4boost_line', $USER->id);
+    unset_user_preference('theme_celene4boost_tts', $USER->id);
 
     redirect(new moodle_url('/local/celeneaccessibility/index.php'));
 
 }elseif ($data = $messageform->get_data()) {
     $dark = required_param('dark', PARAM_TEXT);
+    $tts = required_param('tts', PARAM_TEXT);
     $ls = required_param('letterspacing', PARAM_TEXT);
     $ws = required_param('wordspacing', PARAM_TEXT);
     $linesp = required_param('linespacing', PARAM_TEXT);
@@ -72,6 +75,12 @@ if ($messageform->is_cancelled()){
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
     }else{
         unset_user_preference('theme_celene4boost_mode', $USER->id);
+    }
+
+    if (isset($tts) && !empty($tts)) {
+        set_user_preference('theme_celene4boost_tts', 'tts', $USER->id);
+    }else{
+        unset_user_preference('theme_celene4boost_tts', $USER->id);
     }
 
     if (isset($dys) && !empty($dys)) {

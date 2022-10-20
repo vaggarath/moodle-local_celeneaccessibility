@@ -49,3 +49,7 @@ $string['letterspacing_help'] = 'May impact overall lisibility / display of the 
 $string['letterspacing'] = '';
 $string['menuname']='Accessibility';
 $string['reset']='Reset';
+
+$string['defaulttts']='Text to speech option';
+$string['helptts_help']='This option is still at the beta stage of its development and result may vary greatly depending of your exploitation system';
+$string['helptts']='This option is still at the beta stage of its development and result may vary greatly depending of your exploitation system';

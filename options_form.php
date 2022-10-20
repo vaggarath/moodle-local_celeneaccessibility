@@ -41,6 +41,8 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->setDefault('tts', $checktts);
         $mform->setType('tts', PARAM_BOOL);
 
+        $mform->addElement('html', '<div class="card w-50 mx-auto p-2"><em>L\'option de lecture par voix de synthèse est activée sur le clic droit de la souris, sur le texte désiré</em></div><br />');
+
         // letter spacing option
         $letterSpacing = array(
             '0'=>"normal",

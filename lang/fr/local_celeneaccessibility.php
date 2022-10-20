@@ -50,5 +50,5 @@ $string['reset']='Réinitialiser';
 $string['word-spacing']='Espacement entre les mots';
 
 $string['defaulttts']='Option text to speech (voix de synthèse)';
-$string['helptts_help']='Cette option en est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
-$string['helptts']='Cette option en est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
+$string['helptts_help']='Cette option est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
+$string['helptts']='Cette option est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';

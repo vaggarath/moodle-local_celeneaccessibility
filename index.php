@@ -55,7 +55,7 @@ $messageform = new local_celeneaccessibility_options_form(null, $customdata);
 
 if ($messageform->is_cancelled()){
 
-    unset_user_preference('theme_celene4boost_mode', $USER->id);
+    set_user_preference('theme_celene4boost_mode', '', $USER->id);
     unset_user_preference('theme_celene4boost_dys', $USER->id);
     unset_user_preference('theme_celene4boost_guiding', $USER->id);
     unset_user_preference('theme_celene4boost_parkinson', $USER->id);
@@ -83,7 +83,7 @@ if ($messageform->is_cancelled()){
     if (isset($dark) && !empty($dark)) {
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
     }else{
-        unset_user_preference('theme_celene4boost_mode', $USER->id);
+        set_user_preference('theme_celene4boost_mode', '', $USER->id);
     }
 
     if (isset($tts) && !empty($tts)) {

@@ -24,11 +24,7 @@ class local_celeneaccessibility_options_form extends moodleform{
 
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Troubles et confort visuels</h2>');
-
-        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
-        $mform->setType('dark', PARAM_BOOL);
-        $mform->setDefault('dark', $checkDark);
+        $mform->addElement('html', '<h2 class="h3">Troubles visuels</h2>');
 
         //agrandir le texte
         $fontsizing = array(
@@ -56,8 +52,6 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         $mform->addElement('html', '</div>');
 
-
-
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Troubles moteurs</h2>');
 
@@ -73,6 +67,10 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Confort</h2>');
+
+        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
+        $mform->setType('dark', PARAM_BOOL);
+        $mform->setDefault('dark', $checkDark);
 
         //police dys
 
@@ -129,14 +127,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         <em>L\'option de lecture par voix de synthèse est activée sur le clic droit de la souris, sur le texte désiré</em></div><br />');
 
         $mform->addElement('html', '</div>');
-
-
-
-
-
-
-
-
 
         $mform->addElement('html', '<div class="d-flex justify-content-center">');
         $submitlabel = get_string('submit', 'local_celeneaccessibility');

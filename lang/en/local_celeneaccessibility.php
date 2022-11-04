@@ -37,13 +37,13 @@ $string['darkmode']='Dark mode';
 $string['submit']='Submit';
 $string['defaultdark']='Dark mode';
 $string['defaultdys']='Dyslexia font';
-$string['defaultparkinson']='Assistance à la selection et au clic (agrandissement des éléments)';
+$string['defaultparkinson']='clickable elements and user inputs\' focus enhancement';
 $string['defaultguiding']='Reading guide';
 $string['letter-spacing']='Letter spacing';
 $string['word-spacing']='Word spacing';
 $string['line-spacing']='Line height';
-$string['fontsizing']='Agrandir le texte';
-$string['lowsaturizing']='Rendu des images';
+$string['fontsizing']='Enhance text\'s size';
+$string['lowsaturizing']='Images\' color saturation management';
 $string['normal']='normal';
 $string['larger']='larger';
 $string['large']='large';
@@ -56,3 +56,9 @@ $string['reset']='Reset';
 $string['defaulttts']='Text to speech option';
 $string['helptts_help']='This option is still at the beta stage of its development and result may vary greatly depending of your exploitation system';
 $string['helptts']='This option is still at the beta stage of its development and result may vary greatly depending of your exploitation system';
+
+$string['guidingwarning'] = "Warning: This option will prevent you from using the ESCAP button which'll be used to activate or deactivate the guiding option";
+$string['guidingwarning'] .= "Once activated, this option will drastically change the page behavior. Use with caution";
+$string['guidingwarning'] .= "Once activated you can temporarily deactivate the option with ESCAPE and then unselect the option in the form";
+
+$string['guidingwarning_help'] = $string['guidingwarning'];

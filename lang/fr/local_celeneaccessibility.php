@@ -55,3 +55,9 @@ $string['word-spacing']='Espacement entre les mots';
 $string['defaulttts']='Option text to speech (voix de synthèse)';
 $string['helptts_help']='Cette option est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
 $string['helptts']='Cette option est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
+
+
+$string['guidingwarning'] = "Attention : Cette option vous empêchera d'utiliser le bouton ECHAP de votre clavier car il servira à activer / désactiver l'aide à la lecture.";
+$string['guidingwarning'] .= "Une fois activée, cette option changera drastiquement le comportement attendu de votre page. À utiliser si besoin seulement.";
+$string['guidingwarning'] .= "Une fois l'option activée, vous pourrez la désactiver temporairement sur votre page avec ECHAP et désactiver l'option en la décochant du formulaire de cette page.";
+$string['guidingwarning_help'] = $string['guidingwarning'];

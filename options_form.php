@@ -80,6 +80,7 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
         $mform->setDefault('guiding', $checkguiding);
+        $mform->addHelpButton('guiding', 'guidingwarning', 'local_celeneaccessibility');
         $mform->setType('guiding', PARAM_BOOL);
 
         $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');

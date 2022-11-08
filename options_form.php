@@ -19,6 +19,8 @@ class local_celeneaccessibility_options_form extends moodleform{
         $line = $this->_customdata['options']['line'];
         $fontsize = $this->_customdata['options']['fontsize'];
         $lowsat = $this->_customdata['options']['lowsat'];
+        $textTransform = $this->_customdata['options']['texttransform'] ? $this->_customdata['options']['texttransform'] : "";
+        //$casse = $this->_customdata['options']['casse'];
 
         $mform = $this->_form; //underscore à ne pas oublier !!
 
@@ -120,6 +122,18 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addHelpButton('linespacing', 'letterspacing', 'local_celeneaccessibility');
         $selectLine->setSelected($line);
 
+
+        $texttransformvalue = array(
+            '0'=>'Normal',
+            '1'=>'Majuscule',
+            '2'=>'Minuscule',
+            '3'=>'Première lettre toujours en majuscule'
+        );
+        $textTransformer = $mform->addElement('select', 'texttransform', get_string('casse', 'local_celeneaccessibility'), $texttransformvalue);
+        $mform->addHelpButton('texttransform', 'letterspacing', 'local_celeneaccessibility');
+        $textTransformer->setSelected($textTransform);
+
+
         $mform->addElement('html', '<div class="card bg-secondary w-50 mx-auto p-2 d-flex flex-row" id="tts-option-card">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle mr-2" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -143,7 +157,8 @@ class local_celeneaccessibility_options_form extends moodleform{
             $checktts ||
             $fontsize ||
             $lowsat ||
-            $checkguiding
+            $checkguiding ||
+            $textTransform
         ){
             $resetlabel = get_string('reset', 'local_celeneaccessibility');
             $mform->addElement('cancel', 'cancelbutton', $resetlabel);

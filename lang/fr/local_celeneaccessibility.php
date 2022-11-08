@@ -61,3 +61,5 @@ $string['guidingwarning'] = "Attention : Cette option vous empêchera d'utiliser
 $string['guidingwarning'] .= "Une fois activée, cette option changera drastiquement le comportement attendu de votre page. À utiliser si besoin seulement.";
 $string['guidingwarning'] .= "Une fois l'option activée, vous pourrez la désactiver temporairement sur votre page avec ECHAP et désactiver l'option en la décochant du formulaire de cette page.";
 $string['guidingwarning_help'] = $string['guidingwarning'];
+
+$string['casse'] = "Casse du texte";

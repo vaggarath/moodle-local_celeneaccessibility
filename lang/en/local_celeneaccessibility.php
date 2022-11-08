@@ -62,3 +62,5 @@ $string['guidingwarning'] .= "Once activated, this option will drastically chang
 $string['guidingwarning'] .= "Once activated you can temporarily deactivate the option with ESCAPE and then unselect the option in the form";
 
 $string['guidingwarning_help'] = $string['guidingwarning'];
+
+$string['casse'] = "Text case";

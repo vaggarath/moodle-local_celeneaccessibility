@@ -44,12 +44,15 @@ body.parkinson .btn:hover {
 }
 body.fsa1 {
     font-size: x-large !important;
+    line-height: 2rem;
 }
 body.fsa2 {
     font-size: xx-large !important;
+    line-height: 2.5rem;
 }
 body.fsa3 {
     font-size: xxx-large !important;
+    line-height: 3rem;
 }
 body.lowsat1 img {
     filter: saturate(50%);

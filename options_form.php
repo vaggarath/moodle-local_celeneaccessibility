@@ -20,6 +20,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $fontsize = $this->_customdata['options']['fontsize'];
         $lowsat = $this->_customdata['options']['lowsat'];
         $textTransform = $this->_customdata['options']['texttransform'] ? $this->_customdata['options']['texttransform'] : "";
+        $font = $this->_customdata['options']['fontchoice'];
         //$casse = $this->_customdata['options']['casse'];
 
         $mform = $this->_form; //underscore à ne pas oublier !!
@@ -76,9 +77,20 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         //police dys
 
-        $mform->addElement('advcheckbox', 'dys', get_string('defaultdys', 'local_celeneaccessibility'), '');
-        $mform->setDefault('dys', $checkDys);
-        $mform->setType('dys', PARAM_BOOL);
+        $fontChoice = array(
+            'normal'=>'normal',
+            'dys'=>'OpenDys',
+            'arial'=>'Arial',
+            'verdana'=>'Verdana',
+            'courier'=>'Courier',
+            // 'helvetica'=>'Helvetica Neue' //je suis tombé sur un article disant qu'elle n'est pas websafe. Je vais chercher avant de la proposer
+        );
+        $fontChoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontChoice);
+        $fontChoice->setSelected($font);
+
+        // $mform->addElement('advcheckbox', 'dys', get_string('defaultdys', 'local_celeneaccessibility'), '');
+        // $mform->setDefault('dys', $checkDys);
+        // $mform->setType('dys', PARAM_BOOL);
 
         $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
         $mform->setDefault('guiding', $checkguiding);
@@ -122,7 +134,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addHelpButton('linespacing', 'letterspacing', 'local_celeneaccessibility');
         $selectLine->setSelected($line);
 
-
         $texttransformvalue = array(
             '0'=>'Normal',
             '1'=>'Majuscule',
@@ -158,7 +169,8 @@ class local_celeneaccessibility_options_form extends moodleform{
             $fontsize ||
             $lowsat ||
             $checkguiding ||
-            $textTransform
+            $textTransform ||
+            $font
         ){
             $resetlabel = get_string('reset', 'local_celeneaccessibility');
             $mform->addElement('cancel', 'cancelbutton', $resetlabel);

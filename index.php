@@ -50,6 +50,7 @@ $customdata = array('options' => array(
     'fontsize' => get_user_preferences('theme_celene4boost_fontsize', null, $USER->id),
     'lowsat' => get_user_preferences('theme_celene4boost_lowsat', null, $USER->id),
     'texttransform' => get_user_preferences('theme_celene4boost_texttransform', null, $USER->id),
+    'fontchoice' => get_user_preferences('theme_celene4boost_font', null, $USER->id),
 ));
 
 $messageform = new local_celeneaccessibility_options_form(null, $customdata);
@@ -67,6 +68,7 @@ if ($messageform->is_cancelled()){
     set_user_preference('theme_celene4boost_fontsize', '', $USER->id);
     set_user_preference('theme_celene4boost_lowsat', '', $USER->id);
     set_user_preference('theme_celene4boost_texttransform', '', $USER->id);
+    set_user_preference('theme_celene4boost_font', '', $USER->id);
 
     redirect(new moodle_url('/local/celeneaccessibility/index.php'));
 
@@ -82,6 +84,7 @@ if ($messageform->is_cancelled()){
     $fontsize = required_param('fontsizing', PARAM_TEXT);
     $lowsat = required_param('lowsaturizing', PARAM_TEXT);
     $textTransform = required_param('texttransform', PARAM_INT);
+    $fontchoice = required_param('fontchoice', PARAM_TEXT);
 
     if (isset($dark) && !empty($dark)) {
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
@@ -143,6 +146,16 @@ if ($messageform->is_cancelled()){
         set_user_preference('theme_celene4boost_line', '', $USER->id);
     }
 
+    if(isset($fontchoice) && !empty($fontchoice)){
+        if($fontchoice !== "normal"){
+          set_user_preference('theme_celene4boost_font', $fontchoice, $USER->id);
+        }else{
+            set_user_preference('theme_celene4boost_font', '', $USER->id);
+        }
+    }else{
+        set_user_preference('theme_celene4boost_font', '', $USER->id);
+    }
+
     if(isset($fontsize) && !empty($fontsize)){
         if($fontsize >= 1){
           set_user_preference('theme_celene4boost_fontsize', $fontsize, $USER->id);
@@ -181,5 +194,6 @@ echo $OUTPUT->header();
 if(isloggedin() && !isguestuser()){
     $messageform->display();
 }
+echo "<script src='./amd/src/tts.js'></script>";
 
 echo $OUTPUT->footer();

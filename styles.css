@@ -28,9 +28,26 @@ body.linesp1 {
 body.linesp2 {
     line-height: 2.5rem;
 }
+
+/*font family*/
+
 body.dys {
     font-family: "OpenDyslexic" !important;
 }
+
+body.arial {
+    font-family: "Arial", sans-serif !important;
+}
+
+body.verdana{
+    font-family: Verdana, sans-serif !important;
+}
+
+body.courier {
+    font-family: 'Courier New', monospace !important;
+}
+
+/*troubles moteurs*/
 body.parkinson a:hover, body.parkinson button:hover, body.parkinson input:hover {
     text-align: center !important;
     transform: scale(1.5) !important;

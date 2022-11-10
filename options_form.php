@@ -10,7 +10,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         //define form
     public function definition(){
         $checkDark = $this->_customdata['options']['dark'] === "dark" ? 1 : 0;
-        $checkDys = $this->_customdata['options']['dys'] === "dys" ? 1 : 0;
+        // $checkDys = $this->_customdata['options']['dys'] === "dys" ? 1 : 0;
         $checkguiding = $this->_customdata['options']['guiding'] === "guiding" ? 1 : 0;
         $checkParkinson = $this->_customdata['options']['parkinson'] === "parkinson" ? 1 : 0;
         $checktts = $this->_customdata['options']['tts'] === "tts" ? 1 : 0;
@@ -160,7 +160,7 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         if(
             $checkDark ||
-            $checkDys ||
+            // $checkDys ||
             $checkParkinson ||
             $letter ||
             $word ||

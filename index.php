@@ -41,7 +41,7 @@ $PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
 $customdata = array('options' => array(
     'dark' => get_user_preferences('theme_celene4boost_mode', null, $USER->id),
     'tts' => get_user_preferences('theme_celene4boost_tts', null, $USER->id),
-    'dys' => get_user_preferences('theme_celene4boost_dys', null, $USER->id),
+    // 'dys' => get_user_preferences('theme_celene4boost_dys', null, $USER->id),
     'guiding' => get_user_preferences('theme_celene4boost_guiding', null, $USER->id),
     'parkinson' => get_user_preferences('theme_celene4boost_parkinson', null, $USER->id),
     'letter' => get_user_preferences('theme_celene4boost_letter', null, $USER->id),
@@ -58,7 +58,7 @@ $messageform = new local_celeneaccessibility_options_form(null, $customdata);
 if ($messageform->is_cancelled()){
 
     set_user_preference('theme_celene4boost_mode', '', $USER->id);
-    set_user_preference('theme_celene4boost_dys', '', $USER->id);
+    // set_user_preference('theme_celene4boost_dys', '', $USER->id);
     set_user_preference('theme_celene4boost_guiding', '', $USER->id);
     set_user_preference('theme_celene4boost_parkinson', '', $USER->id);
     set_user_preference('theme_celene4boost_letter', '', $USER->id);
@@ -78,7 +78,7 @@ if ($messageform->is_cancelled()){
     $ls = required_param('letterspacing', PARAM_TEXT);
     $ws = required_param('wordspacing', PARAM_TEXT);
     $linesp = required_param('linespacing', PARAM_TEXT);
-    $dys = required_param('dys', PARAM_TEXT);
+    // $dys = required_param('dys', PARAM_TEXT);
     $guiding = required_param('guiding', PARAM_TEXT);
     $parkinson = required_param('parkinson', PARAM_TEXT);
     $fontsize = required_param('fontsizing', PARAM_TEXT);
@@ -98,11 +98,11 @@ if ($messageform->is_cancelled()){
         set_user_preference('theme_celene4boost_tts', '', $USER->id);
     }
 
-    if (isset($dys) && !empty($dys)) {
-        set_user_preference('theme_celene4boost_dys', 'dys', $USER->id);
-    }else{
-        set_user_preference('theme_celene4boost_dys', '', $USER->id);
-    }
+    // if (isset($dys) && !empty($dys)) {
+    //     set_user_preference('theme_celene4boost_dys', 'dys', $USER->id);
+    // }else{
+    //     set_user_preference('theme_celene4boost_dys', '', $USER->id);
+    // }
 
     if (isset($guiding) && !empty($guiding)) {
         set_user_preference('theme_celene4boost_guiding', 'guiding', $USER->id);

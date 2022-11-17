@@ -1,6 +1,12 @@
 <?php
 
 if ($hassiteconfig) {
+    //recuperer toutes les options vides pour les compter et plus tard proposer une option pour les nettoyer
+    $sql = "SELECT *
+            FROM {user_preferences}
+            WHERE name LIKE :name AND value=''";
+    $records = $DB->get_records_sql($sql, array('name'=>"theme_celene4boost_%"));
+
     $settings = new admin_settingpage('local_celeneaccessibility', get_string('pluginname', 'local_celeneaccessibility'));
     $ADMIN->add('localplugins', $settings);
 
@@ -23,6 +29,7 @@ if ($hassiteconfig) {
 
         $settings->add(new admin_setting_confightmleditor('local_celeneaccessibility/adminMessage', get_string('adminmessage', 'local_celeneaccessibility'), '', ''));
 
+        $settings->add(new admin_setting_heading('local_celeneaccessibility/count', '', get_string('countempty', 'local_celeneaccessibility').' : '.count($records)));
         // nettoyer la base de données
 
     }

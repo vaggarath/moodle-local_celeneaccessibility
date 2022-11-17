@@ -77,3 +77,4 @@ $string['showguiding'] = "Show guiding option";
 $string['showguidingdesc'] = "Permit user to see the guiding options";
 
 $string['adminmessage'] = "Informational message to users";
+$string['countempty'] = "Nombre d'options vides en base";

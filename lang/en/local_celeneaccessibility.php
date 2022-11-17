@@ -75,3 +75,5 @@ $string['showttsdesc'] = "Permit user to see the TTS options";
 
 $string['showguiding'] = "Show guiding option";
 $string['showguidingdesc'] = "Permit user to see the guiding options";
+
+$string['adminmessage'] = "Informational message to users";

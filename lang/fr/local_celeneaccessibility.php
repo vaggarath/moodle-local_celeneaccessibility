@@ -73,3 +73,5 @@ $string['showttsdesc'] = "Permettre à l'utilisateur de voir l'option TTS";
 
 $string['showguiding'] = "Montre l'option de guide lecture";
 $string['showguidingdesc'] = "Permet à l'utilisateur de voir l'option du guide de lecture";
+
+$string['adminmessage'] = "Message d'information à l'attention des utilisateurs";

@@ -21,6 +21,8 @@ if ($hassiteconfig) {
             '0',
         ));
 
+        $settings->add(new admin_setting_confightmleditor('local_celeneaccessibility/adminMessage', get_string('adminmessage', 'local_celeneaccessibility'), '', ''));
+
         // nettoyer la base de données
 
     }

@@ -28,6 +28,10 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         $mform = $this->_form; //underscore à ne pas oublier !!
 
+        if(get_config('local_celeneaccessibility', 'showguiding')){
+            $mform->addElement('html',"<div class='card mx-auto mb-2'>".get_config('local_celeneaccessibility', 'adminMessage')."</div>");
+        }
+
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Troubles visuels</h2>');

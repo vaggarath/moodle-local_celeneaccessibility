@@ -23,6 +23,9 @@ class local_celeneaccessibility_options_form extends moodleform{
         $font = $this->_customdata['options']['fontchoice'];
         //$casse = $this->_customdata['options']['casse'];
 
+        $displayTTS = get_config('local_celeneaccessibility', 'showtts'); //settings pour montrer/cacher l'option TTS
+        $displayGuiding = get_config('local_celeneaccessibility', 'showguiding');
+
         $mform = $this->_form; //underscore à ne pas oublier !!
 
 
@@ -91,16 +94,21 @@ class local_celeneaccessibility_options_form extends moodleform{
         // $mform->addElement('advcheckbox', 'dys', get_string('defaultdys', 'local_celeneaccessibility'), '');
         // $mform->setDefault('dys', $checkDys);
         // $mform->setType('dys', PARAM_BOOL);
+        if($displayGuiding){
+            $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
+            $mform->setDefault('guiding', $checkguiding);
+            $mform->addHelpButton('guiding', 'guidingwarning', 'local_celeneaccessibility');
+            $mform->setType('guiding', PARAM_BOOL);
+        }
 
-        $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
-        $mform->setDefault('guiding', $checkguiding);
-        $mform->addHelpButton('guiding', 'guidingwarning', 'local_celeneaccessibility');
-        $mform->setType('guiding', PARAM_BOOL);
 
-        $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
-        $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
-        $mform->setDefault('tts', $checktts);
-        $mform->setType('tts', PARAM_BOOL);
+        if($displayTTS){
+            $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
+            $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
+            $mform->setDefault('tts', $checktts);
+            $mform->setType('tts', PARAM_BOOL);
+        }
+
 
         // letter spacing option
         $letterSpacing = array(

@@ -65,3 +65,11 @@ $string['guidingwarning'] .= "Une fois l'option activée, vous pourrez la désac
 $string['guidingwarning_help'] = $string['guidingwarning'];
 
 $string['casse'] = "Casse du texte";
+
+
+$string['showtts'] = "Option TTS";
+$string['showttsdesc'] = "Permettre à l'utilisateur de voir l'option TTS";
+
+
+$string['showguiding'] = "Montre l'option de guide lecture";
+$string['showguidingdesc'] = "Permet à l'utilisateur de voir l'option du guide de lecture";

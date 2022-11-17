@@ -68,3 +68,10 @@ $string['guidingwarning'] .= "Once activated you can temporarily deactivate the 
 $string['guidingwarning_help'] = $string['guidingwarning'];
 
 $string['casse'] = "Text case";
+
+
+$string['showtts'] = "Show TTS' option";
+$string['showttsdesc'] = "Permit user to see the TTS options";
+
+$string['showguiding'] = "Show guiding option";
+$string['showguidingdesc'] = "Permit user to see the guiding options";

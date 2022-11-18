@@ -7,6 +7,12 @@
 body.ls2 {
     letter-spacing: 0.3rem !important;
 }
+body.ls2 .maincalendar .calendarmonth td .day-number-circle .day-number{
+    padding:0 !important;
+}
+body.ls1 .maincalendar .calendarmonth td .day-number-circle .day-number{
+    padding:0 !important;
+}
 body.ls1 {
     letter-spacing: 0.2rem !important;
 }
@@ -94,13 +100,14 @@ body.guiding #reading-line {
     right: 0;
     z-index: 99999;
 }
-body.guiding #reading-line > span {
+.guidingHelp {
     position: absolute;
     font-size: 1.5rem;
     font-weight: bolder;
     bottom: 10px;
     background: #fff !important;
     color: #45a59d !important;
+    z-index: 9999 !important;
 }
 body.guiding #reading-line > div {
     position: absolute;

@@ -29,7 +29,8 @@ if ($hassiteconfig) {
 
         $settings->add(new admin_setting_confightmleditor('local_celeneaccessibility/adminMessage', get_string('adminmessage', 'local_celeneaccessibility'), '', ''));
 
-        $settings->add(new admin_setting_heading('local_celeneaccessibility/count', '', get_string('countempty', 'local_celeneaccessibility').' : '.count($records)));
+        // $settings->add(new admin_setting_heading('local_celeneaccessibility/count', '', get_string('countempty', 'local_celeneaccessibility').' : '.count($records)));
+        // $settings->add(new admin_setting_heading('local_celeneaccessibility/purge', '', '<p class="btn btn-warning">Purger les options vides de la base</p>'));
         // nettoyer la base de données
 
     }

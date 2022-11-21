@@ -38,6 +38,11 @@ $PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
 /**
  * get_user_preferences($nom, $defaultValue, $userId)
  */
+
+//check if settings exist or not. If not then tts & guiging shouldn't exists
+$displayTTS = get_config('local_celeneaccessibility', 'showtts'); //settings pour montrer/cacher l'option TTS
+$displayGuiding = get_config('local_celeneaccessibility', 'showguiding');
+
 $customdata = array('options' => array(
     'dark' => get_user_preferences('theme_celene4boost_mode', null, $USER->id),
     'tts' => get_user_preferences('theme_celene4boost_tts', null, $USER->id),
@@ -59,12 +64,16 @@ if ($messageform->is_cancelled()){
 
     set_user_preference('theme_celene4boost_mode', '', $USER->id);
     // set_user_preference('theme_celene4boost_dys', '', $USER->id);
-    set_user_preference('theme_celene4boost_guiding', '', $USER->id);
+    if($displayGuiding){
+        set_user_preference('theme_celene4boost_guiding', '', $USER->id);
+    }
     set_user_preference('theme_celene4boost_parkinson', '', $USER->id);
     set_user_preference('theme_celene4boost_letter', '', $USER->id);
     set_user_preference('theme_celene4boost_word', '', $USER->id);
     set_user_preference('theme_celene4boost_line', '', $USER->id);
-    set_user_preference('theme_celene4boost_tts', '', $USER->id);
+    if($displayTTS){
+       set_user_preference('theme_celene4boost_tts', '', $USER->id);
+    }
     set_user_preference('theme_celene4boost_fontsize', '', $USER->id);
     set_user_preference('theme_celene4boost_lowsat', '', $USER->id);
     set_user_preference('theme_celene4boost_texttransform', '', $USER->id);
@@ -74,12 +83,13 @@ if ($messageform->is_cancelled()){
 
 }elseif ($data = $messageform->get_data()) {
     $dark = required_param('dark', PARAM_TEXT);
-    $tts = required_param('tts', PARAM_TEXT);
+
+    $tts = $displayTTS ? required_param('tts', PARAM_TEXT) : null;
     $ls = required_param('letterspacing', PARAM_TEXT);
     $ws = required_param('wordspacing', PARAM_TEXT);
     $linesp = required_param('linespacing', PARAM_TEXT);
     // $dys = required_param('dys', PARAM_TEXT);
-    $guiding = required_param('guiding', PARAM_TEXT);
+    $guiding = $displayGuiding ? required_param('guiding', PARAM_TEXT) : null;
     $parkinson = required_param('parkinson', PARAM_TEXT);
     $fontsize = required_param('fontsizing', PARAM_TEXT);
     $lowsat = required_param('lowsaturizing', PARAM_TEXT);
@@ -92,7 +102,7 @@ if ($messageform->is_cancelled()){
         set_user_preference('theme_celene4boost_mode', '', $USER->id);
     }
 
-    if (isset($tts) && !empty($tts)) {
+    if (isset($tts) && !empty($tts) && $displayTTS) {
         set_user_preference('theme_celene4boost_tts', 'tts', $USER->id);
     }else{
         set_user_preference('theme_celene4boost_tts', '', $USER->id);
@@ -104,7 +114,7 @@ if ($messageform->is_cancelled()){
     //     set_user_preference('theme_celene4boost_dys', '', $USER->id);
     // }
 
-    if (isset($guiding) && !empty($guiding)) {
+    if (isset($guiding) && !empty($guiding) && $displayGuiding) {
         set_user_preference('theme_celene4boost_guiding', 'guiding', $USER->id);
     }else{
         set_user_preference('theme_celene4boost_guiding', '', $USER->id);

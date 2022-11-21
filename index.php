@@ -194,6 +194,5 @@ echo $OUTPUT->header();
 if(isloggedin() && !isguestuser()){
     $messageform->display();
 }
-echo "<script src='./amd/src/tts.js'></script>";
 
 echo $OUTPUT->footer();

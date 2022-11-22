@@ -76,3 +76,5 @@ $string['showguidingdesc'] = "Permet à l'utilisateur de voir l'option du guide 
 
 $string['adminmessage'] = "Message d'information à l'attention des utilisateurs";
 $string['countempty'] = "Nombre d'options vides en base";
+
+$string['cleandb'] = "Nettoyage DB";

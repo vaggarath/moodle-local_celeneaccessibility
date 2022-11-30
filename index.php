@@ -26,7 +26,7 @@ require_once($CFG->dirroot. '/local/celeneaccessibility/options_form.php');
 require_login();
 $context = context_system::instance();
 
-
+$PAGE->requires->js_call_amd('local_celeneaccessibility/demo', 'demo');
 $PAGE->set_context($context);
 
 $PAGE->set_url('/local/celeneaccessibility/index.php');
@@ -104,12 +104,6 @@ if ($messageform->is_cancelled()){
     }else{
         unset_user_preference('theme_celene4boost_tts', $USER->id);
     }
-
-    // if (isset($dys) && !empty($dys)) {
-    //     set_user_preference('theme_celene4boost_dys', 'dys', $USER->id);
-    // }else{
-    //     set_user_preference('theme_celene4boost_dys', '', $USER->id);
-    // }
 
     if (isset($guiding) && !empty($guiding) && $displayGuiding) {
         set_user_preference('theme_celene4boost_guiding', 'guiding', $USER->id);

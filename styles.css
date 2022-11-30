@@ -385,3 +385,7 @@ mark {
 .play-btn:focus {
     outline: none;
 }
+
+img.satdemo{
+    max-width: 500px;
+}

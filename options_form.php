@@ -7,8 +7,10 @@ require_once($CFG->libdir . '/formslib.php');
 class local_celeneaccessibility_options_form extends moodleform{
     // using constructor parameters for testing purpose
     protected $_customdata;
+
         //define form
     public function definition(){
+        global $OUTPUT;
         $checkDark = $this->_customdata['options']['dark'] === "dark" ? 1 : 0;
         // $checkDys = $this->_customdata['options']['dys'] === "dys" ? 1 : 0;
         $checkguiding = $this->_customdata['options']['guiding'] === "guiding" ? 1 : 0;
@@ -29,7 +31,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform = $this->_form; //underscore à ne pas oublier !!
 
         if(get_config('local_celeneaccessibility', 'showguiding')){
-            $mform->addElement('html',"<div class='card mx-auto mb-2'>".get_config('local_celeneaccessibility', 'adminMessage')."</div>");
+            $mform->addElement('html',"<div class='card mx-auto mb-2 p-3'>".get_config('local_celeneaccessibility', 'adminMessage')."</div>");
         }
 
 
@@ -59,6 +61,12 @@ class local_celeneaccessibility_options_form extends moodleform{
         $selectLine = $mform->addElement('select', 'lowsaturizing', get_string('lowsaturizing', 'local_celeneaccessibility'), $lowsaturizing);
         $mform->addHelpButton('lowsaturizing', 'letterspacing', 'local_celeneaccessibility');
         $selectLine->setSelected($lowsat);
+
+        $templatecontext = [
+            'imageone' => $OUTPUT->image_url('logo', 'local_celeneaccessibility'),
+        ];
+        //echo $OUTPUT->render_from_template('local_celeneaccessibility/logo_universite', $templatecontext);
+        $mform->addElement('html', $OUTPUT->render_from_template('local_celeneaccessibility/logo_universite', $templatecontext));
 
         $mform->addElement('html', '</div>');
 

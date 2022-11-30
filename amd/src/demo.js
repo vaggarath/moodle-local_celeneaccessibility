@@ -112,4 +112,19 @@ export const demo = () =>{
             body.classList.add(saturize);
         }
     });
+
+    const fontChoice = document.getElementById('id_fontchoice');
+    fontChoice.addEventListener('change', (e)=>{
+        const font = e.target.value;
+        const allFonts = ["normal", "dys", "arial", "verdana", "courier"];
+        for(let i =0; i<allFonts.length; i++){
+            if(body.classList.contains(allFonts[i])){
+                body.classList.remove(allFonts[i]);
+            }
+        }
+        body.classList.add(font);
+    });
+    // window.addEventListener('beforeunload',(e)=>{
+    //     e.stopPropagation();
+    // });
 };

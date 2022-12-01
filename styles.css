@@ -389,3 +389,10 @@ mark {
 img.satdemo{
     max-width: 500px;
 }
+
+#brandaccess{
+    max-width: 100px;
+    position: fixed;
+    top: 61px;
+    right: 0;
+}

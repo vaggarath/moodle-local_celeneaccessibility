@@ -55,7 +55,13 @@ $string['font']='Polices d \'écriture';
 
 $string['defaulttts']='Option text to speech (voix de synthèse)';
 $string['helptts_help']='Cette option est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
+$string['helptts_help'].="<br />";
+$string['helptts_help'].="Cette option utilise votre système d'exploitation pour restituter le texte par voix de synthèse";
+$string['helptts_help'].="<br />Cette option ne fait donc transiter aucune donnée nul part";
 $string['helptts']='Cette option est encore en béta. Le résultat peut grandement varier selon votre système d\'exploitation';
+$string['helptts'].="<br />";
+$string['helptts'].="Cette option utilise votre système d'exploitation pour restituter le texte par voix de synthèse";
+$string['helptts'].="<br />Cette option ne fait donc transiter aucune donnée nul part";
 
 $string['guidingwarning'] = "Cette option est encore en béta. Le résultat peut grandement varier selon votre matériel"." \r\n ";
 $string['guidingwarning'] .= " \r\n ";

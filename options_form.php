@@ -64,8 +64,9 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         $templatecontext = [
             'imageone' => $OUTPUT->image_url('logo', 'local_celeneaccessibility'),
+            'brand' => $OUTPUT->image_url('diag22', 'local_celeneaccessibility'),
         ];
-        //echo $OUTPUT->render_from_template('local_celeneaccessibility/logo_universite', $templatecontext);
+
         $mform->addElement('html', $OUTPUT->render_from_template('local_celeneaccessibility/logo_universite', $templatecontext));
 
         $mform->addElement('html', '</div>');
@@ -103,9 +104,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         $fontChoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontChoice);
         $fontChoice->setSelected($font);
 
-        // $mform->addElement('advcheckbox', 'dys', get_string('defaultdys', 'local_celeneaccessibility'), '');
-        // $mform->setDefault('dys', $checkDys);
-        // $mform->setType('dys', PARAM_BOOL);
         if($displayGuiding){
             $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
             $mform->setDefault('guiding', $checkguiding);
@@ -180,7 +178,6 @@ class local_celeneaccessibility_options_form extends moodleform{
 
         if(
             $checkDark ||
-            // $checkDys ||
             $checkParkinson ||
             $letter ||
             $word ||

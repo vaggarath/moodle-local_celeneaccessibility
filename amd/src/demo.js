@@ -58,10 +58,10 @@ export const demo = () =>{
 
     const ttsCheck = document.getElementById('id_tts');
     ttsCheck.addEventListener('click', ()=>{
-        if(body.classList.contains('tss')){
-            body.classList.remove('tss');
+        if(body.classList.contains('tts')){
+            body.classList.remove('tts');
         }else{
-            body.classList.add('tss');
+            body.classList.add('tts');
         }
     });
 

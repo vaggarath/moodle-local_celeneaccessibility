@@ -55,6 +55,7 @@ $customdata = array('options' => array(
     'lowsat' => get_user_preferences('theme_celene4boost_lowsat', null, $USER->id),
     'texttransform' => get_user_preferences('theme_celene4boost_texttransform', null, $USER->id),
     'fontchoice' => get_user_preferences('theme_celene4boost_font', null, $USER->id),
+    'bluelight' => get_user_preferences('theme_celene4boost_blue', null, $USER->id),
 ));
 
 $messageform = new local_celeneaccessibility_options_form(null, $customdata);
@@ -76,6 +77,7 @@ if ($messageform->is_cancelled()){
     unset_user_preference('theme_celene4boost_lowsat', $USER->id);
     unset_user_preference('theme_celene4boost_texttransform', $USER->id);
     unset_user_preference('theme_celene4boost_font', $USER->id);
+    unset_user_preference('theme_celene4boost_blue', $USER->id);
 
     redirect(new moodle_url('/local/celeneaccessibility/index.php'));
 
@@ -92,6 +94,7 @@ if ($messageform->is_cancelled()){
     $lowsat = required_param('lowsaturizing', PARAM_TEXT);
     $textTransform = required_param('texttransform', PARAM_INT);
     $fontchoice = required_param('fontchoice', PARAM_TEXT);
+    $bluelight = required_param('bluechoice', PARAM_TEXT);
 
     if (isset($dark) && !empty($dark)) {
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
@@ -155,6 +158,16 @@ if ($messageform->is_cancelled()){
         }
     }else{
         unset_user_preference('theme_celene4boost_font', $USER->id);
+    }
+
+    if(isset($bluelight) && !empty($bluelight)){
+        if($bluelight !== "normal"){
+          set_user_preference('theme_celene4boost_blue', $bluelight, $USER->id);
+        }else{
+            unset_user_preference('theme_celene4boost_blue', $USER->id);
+        }
+    }else{
+        unset_user_preference('theme_celene4boost_blue', $USER->id);
     }
 
     if(isset($fontsize) && !empty($fontsize)){

@@ -12,7 +12,6 @@ class local_celeneaccessibility_options_form extends moodleform{
     public function definition(){
         global $OUTPUT;
         $checkDark = $this->_customdata['options']['dark'] === "dark" ? 1 : 0;
-        // $checkDys = $this->_customdata['options']['dys'] === "dys" ? 1 : 0;
         $checkguiding = $this->_customdata['options']['guiding'] === "guiding" ? 1 : 0;
         $checkParkinson = $this->_customdata['options']['parkinson'] === "parkinson" ? 1 : 0;
         $checktts = $this->_customdata['options']['tts'] === "tts" ? 1 : 0;
@@ -23,6 +22,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $lowsat = $this->_customdata['options']['lowsat'];
         $textTransform = $this->_customdata['options']['texttransform'] ? $this->_customdata['options']['texttransform'] : "";
         $font = $this->_customdata['options']['fontchoice'];
+        $blueLight = $this->_customdata['options']['bluelight'];
         //$casse = $this->_customdata['options']['casse'];
 
         $displayTTS = get_config('local_celeneaccessibility', 'showtts'); //settings pour montrer/cacher l'option TTS
@@ -103,6 +103,16 @@ class local_celeneaccessibility_options_form extends moodleform{
         );
         $fontChoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontChoice);
         $fontChoice->setSelected($font);
+
+        // $blueLightChoice = array(
+        //     "0"=>"normal",
+        //     "1"=>"Filtre léger",
+        //     '2'=>"Filtre fort"
+        // );
+        // $blueChoice = $mform->addElement('select', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), $blueLightChoice);
+        $blueChoice = $mform->addElement('advcheckbox', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), '');
+        // $blueChoice->setSelected($blueLight);
+        $mform->setDefault('bluechoice', $blueLight);
 
         if($displayGuiding){
             $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
@@ -187,7 +197,8 @@ class local_celeneaccessibility_options_form extends moodleform{
             $lowsat ||
             $checkguiding ||
             $textTransform ||
-            $font
+            $font ||
+            $blueLight
         ){
             $resetlabel = get_string('reset', 'local_celeneaccessibility');
             $mform->addElement('cancel', 'cancelbutton', $resetlabel);

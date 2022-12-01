@@ -48,35 +48,25 @@ $string['lowsaturizing']='Images\' color saturation management';
 $string['normal']='normal';
 $string['larger']='larger';
 $string['large']='large';
-
 $string['letterspacing_help'] = 'May impact overall lisibility / display of the website. Doesn\'t impact external files';
 $string['letterspacing'] = '';
 $string['menuname']='Accessibility';
 $string['reset']='Reset';
-
 $string['defaulttts']='Text to speech option';
 $string['helptts_help']='This option is still at the beta stage of its development and result may vary greatly depending of your exploitation system';
 $string['helptts']='This option is still at the beta stage of its development and result may vary greatly depending of your exploitation system';
-
-
 $string['guidingwarning'] = "This option is still in its beta phase. Results may vary greatly depending on your hardware"." \r\n ";
 $string['guidingwarning'] .= " \r\n ";
 $string['guidingwarning'] .= "Warning: This option will prevent you from using the ESCAP button which'll be used to activate or deactivate the guiding option";
 $string['guidingwarning'] .= "Once activated, this option will drastically change the page behavior. Use with caution";
 $string['guidingwarning'] .= "Once activated you can temporarily deactivate the option with ESCAPE and then unselect the option in the form";
-
 $string['guidingwarning_help'] = $string['guidingwarning'];
-
 $string['casse'] = "Text case";
-
-
 $string['showtts'] = "Show TTS' option";
 $string['showttsdesc'] = "Permit user to see the TTS options";
-
 $string['showguiding'] = "Show guiding option";
 $string['showguidingdesc'] = "Permit user to see the guiding options";
-
 $string['adminmessage'] = "Informational message to users";
 $string['countempty'] = "Nombre d'options vides en base";
-
 $string['cleandb'] = "DB cleaner";
+$string['bluelight'] = "Filter to reduce blue light effect of the screen";

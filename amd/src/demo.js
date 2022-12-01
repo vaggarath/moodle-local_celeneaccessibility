@@ -124,6 +124,15 @@ export const demo = () =>{
         }
         body.classList.add(font);
     });
+
+    const blueChoice = document.getElementById('id_bluechoice');
+    blueChoice.addEventListener('click', ()=>{
+        if(body.classList.contains('blue-filter-strong')){
+            body.classList.remove('blue-filter-strong');
+        }else{
+            body.classList.add('blue-filter-strong');
+        }
+    });
     // window.addEventListener('beforeunload',(e)=>{
     //     e.stopPropagation();
     // });

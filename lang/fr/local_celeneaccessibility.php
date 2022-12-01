@@ -31,7 +31,7 @@ $string['menuitem']='Options d\'accessibilité';
 $string['pluginname']= 'celeneaccessibility';
 $string['tool_title']='Vos options d\'accessibilité';
 $string['title']='Titre';
-$string['preview']='Preview';
+$string['preview']='Prévisualisation';
 $string['show']='Voir';
 $string['darkmode']='Thème sombre';
 $string['submit']='Valider';
@@ -44,7 +44,7 @@ $string['line-spacing']='Interligne';
 $string['normal']='normal';
 $string['larger']='plus large';
 $string['large']='large';
-$string['letterspacing_help'] = 'Cet élément peut avoir une incidence sur l\'affichage du site. N\'a pas d\'incidence sur les fichiers externes';
+$string['letterspacing_help'] = 'Cet élément peut avoir une incidence sur l\'affichage du site. <br> N\'a pas d\'incidence sur les fichiers externes tels que les PDF';
 $string['letterspacing'] = '';
 $string['defaultdys']='Police d\'écriture OpenDys';
 $string['defaultparkinson']='Assistance à la sélection et au clic (agrandissement des éléments)';
@@ -74,10 +74,10 @@ $string['casse'] = "Casse du texte";
 
 
 $string['showtts'] = "Option TTS";
-$string['showttsdesc'] = "Permettre à l'utilisateur de voir l'option TTS";
+$string['showttsdesc'] = "Activer l'option TTS";
 
 
-$string['showguiding'] = "Montre l'option de guide lecture";
+$string['showguiding'] = "Activer l'option de guide lecture";
 $string['showguidingdesc'] = "Permet à l'utilisateur de voir l'option du guide de lecture";
 
 $string['adminmessage'] = "Message d'information à l'attention des utilisateurs";

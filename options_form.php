@@ -36,7 +36,7 @@ class local_celeneaccessibility_options_form extends moodleform{
 
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Troubles visuels</h2>');
+        $mform->addElement('html', '<h2 class="h3">Confort visuel</h2>');
 
         //agrandir le texte
         $fontsizing = array(
@@ -72,7 +72,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addElement('html', '</div>');
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Troubles moteurs</h2>');
+        $mform->addElement('html', '<h2 class="h3">Confort moteur</h2>');
 
         //gestes imprécis
 
@@ -85,7 +85,7 @@ class local_celeneaccessibility_options_form extends moodleform{
 
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Confort</h2>');
+        $mform->addElement('html', '<h2 class="h3">Confort - Général</h2>');
 
         $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
         $mform->setType('dark', PARAM_BOOL);

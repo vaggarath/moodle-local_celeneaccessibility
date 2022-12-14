@@ -74,6 +74,7 @@ body.fsa1 {
     font-size: x-large !important;
     line-height: 2rem;
 }
+
 body.fsa2 {
     font-size: xx-large !important;
     line-height: 2.5rem;
@@ -82,6 +83,13 @@ body.fsa3 {
     font-size: xxx-large !important;
     line-height: 3rem;
 }
+
+/* header menu */
+body.fsa1 .navbar, body.fsa2 .navbar, body.fsa3 .navbar{
+    font-size: medium !important;
+    line-height: normal !important;
+}
+
 body.lowsat1 img {
     filter: saturate(50%);
 }

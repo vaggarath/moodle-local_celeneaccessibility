@@ -54,13 +54,18 @@ body.courier {
 }
 
 /*troubles moteurs*/
-body.parkinson a:hover, body.parkinson button:hover, body.parkinson input:hover {
+body.parkinson a:not(.card-img-overlay a):hover, body.parkinson button:hover, body.parkinson input:hover, body.parkinson a:not(.card-img-overlay a):focus, body.parkinson a:not(.card-img-overlay a):focus-visible, body.parkinson select:hover, body.parkinson select:focus {
     text-align: center !important;
     transform: scale(1.5) !important;
     border: thick double #424a54 !important;
     transition: all 0.4s ease;
     z-index: 99;
 }
+
+.card-img-overlay > a:hover{
+    transform: scale(0) !important;
+}
+
 body.parkinson .btn:hover {
     display: flex;
     justify-content: center;

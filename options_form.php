@@ -36,7 +36,15 @@ class local_celeneaccessibility_options_form extends moodleform{
 
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Troubles visuels</h2>');
+        $mform->addElement('html', '<h2 class="h3">Confort visuel</h2>');
+
+        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
+        $mform->setType('dark', PARAM_BOOL);
+        $mform->setDefault('dark', $checkDark);
+
+        $blueChoice = $mform->addElement('advcheckbox', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), '');
+        // $blueChoice->setSelected($blueLight);
+        $mform->setDefault('bluechoice', $blueLight);
 
         //agrandir le texte
         $fontsizing = array(
@@ -72,7 +80,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addElement('html', '</div>');
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Troubles moteurs</h2>');
+        $mform->addElement('html', '<h2 class="h3">Confort moteur</h2>');
 
         //gestes imprécis
 
@@ -85,11 +93,7 @@ class local_celeneaccessibility_options_form extends moodleform{
 
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Confort</h2>');
-
-        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
-        $mform->setType('dark', PARAM_BOOL);
-        $mform->setDefault('dark', $checkDark);
+        $mform->addElement('html', '<h2 class="h3">Autre</h2>');
 
         //police dys
 
@@ -103,16 +107,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         );
         $fontChoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontChoice);
         $fontChoice->setSelected($font);
-
-        // $blueLightChoice = array(
-        //     "0"=>"normal",
-        //     "1"=>"Filtre léger",
-        //     '2'=>"Filtre fort"
-        // );
-        // $blueChoice = $mform->addElement('select', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), $blueLightChoice);
-        $blueChoice = $mform->addElement('advcheckbox', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), '');
-        // $blueChoice->setSelected($blueLight);
-        $mform->setDefault('bluechoice', $blueLight);
 
         if($displayGuiding){
             $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');

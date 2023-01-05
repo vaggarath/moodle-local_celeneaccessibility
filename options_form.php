@@ -88,7 +88,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addHelpButton('parkinson', 'letterspacing', 'local_celeneaccessibility');
         $mform->setDefault('parkinson', $checkParkinson);
         $mform->setType('parkinson', PARAM_BOOL);
-
         $mform->addElement('html', '</div>');
 
 

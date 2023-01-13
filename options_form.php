@@ -57,43 +57,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addHelpButton('fontsizing', 'letterspacing', 'local_celeneaccessibility');
         $selectLine->setSelected($fontsize);
 
-        //désaturer les images
-        //agrandir le texte
-        $lowsaturizing = array(
-            '0'=>"normal",
-            '1'=>"désaturation moyenne",
-            '2'=>"monochrome",
-            '3'=>"Couleurs vives",
-            '4'=>"Couleurs très vives",
-        );
-        $selectLine = $mform->addElement('select', 'lowsaturizing', get_string('lowsaturizing', 'local_celeneaccessibility'), $lowsaturizing);
-        $mform->addHelpButton('lowsaturizing', 'letterspacing', 'local_celeneaccessibility');
-        $selectLine->setSelected($lowsat);
-
-        $templatecontext = [
-            'imageone' => $OUTPUT->image_url('logo', 'local_celeneaccessibility'),
-            'brand' => $OUTPUT->image_url('diag22', 'local_celeneaccessibility'),
-        ];
-
-        $mform->addElement('html', $OUTPUT->render_from_template('local_celeneaccessibility/logo_universite', $templatecontext));
-
-        $mform->addElement('html', '</div>');
-
-        $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Confort moteur</h2>');
-
-        //gestes imprécis
-
-        $mform->addElement('advcheckbox', 'parkinson', get_string('defaultparkinson', 'local_celeneaccessibility'), '');
-        $mform->addHelpButton('parkinson', 'letterspacing', 'local_celeneaccessibility');
-        $mform->setDefault('parkinson', $checkParkinson);
-        $mform->setType('parkinson', PARAM_BOOL);
-        $mform->addElement('html', '</div>');
-
-
-        $mform->addElement('html', '<div class="card p-3 mb-3">');
-        $mform->addElement('html', '<h2 class="h3">Autre</h2>');
-
+        /**move here */
         //police dys
 
         $fontChoice = array(
@@ -106,22 +70,6 @@ class local_celeneaccessibility_options_form extends moodleform{
         );
         $fontChoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontChoice);
         $fontChoice->setSelected($font);
-
-        if($displayGuiding){
-            $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
-            $mform->setDefault('guiding', $checkguiding);
-            $mform->addHelpButton('guiding', 'guidingwarning', 'local_celeneaccessibility');
-            $mform->setType('guiding', PARAM_BOOL);
-        }
-
-
-        if($displayTTS){
-            $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
-            $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
-            $mform->setDefault('tts', $checktts);
-            $mform->setType('tts', PARAM_BOOL);
-        }
-
 
         // letter spacing option
         $letterSpacing = array(
@@ -166,6 +114,62 @@ class local_celeneaccessibility_options_form extends moodleform{
         $textTransformer->setSelected($textTransform);
 
 
+
+        /*********** */
+        //désaturer les images
+        //agrandir le texte
+        $lowsaturizing = array(
+            '0'=>"normal",
+            '1'=>"désaturation moyenne",
+            '2'=>"monochrome",
+            '3'=>"Couleurs vives",
+            '4'=>"Couleurs très vives",
+        );
+        $selectLine = $mform->addElement('select', 'lowsaturizing', get_string('lowsaturizing', 'local_celeneaccessibility'), $lowsaturizing);
+        $mform->addHelpButton('lowsaturizing', 'letterspacing', 'local_celeneaccessibility');
+        $selectLine->setSelected($lowsat);
+
+        $templatecontext = [
+            'imageone' => $OUTPUT->image_url('logo', 'local_celeneaccessibility'),
+            'brand' => $OUTPUT->image_url('diag22', 'local_celeneaccessibility'),
+        ];
+
+        $mform->addElement('html', $OUTPUT->render_from_template('local_celeneaccessibility/logo_universite', $templatecontext));
+
+        $mform->addElement('html', '</div>');
+
+        $mform->addElement('html', '<div class="card p-3 mb-3">');
+        $mform->addElement('html', '<h2 class="h3">Confort moteur</h2>');
+
+        //gestes imprécis
+
+        $mform->addElement('advcheckbox', 'parkinson', get_string('defaultparkinson', 'local_celeneaccessibility'), '');
+        $mform->addHelpButton('parkinson', 'letterspacing', 'local_celeneaccessibility');
+        $mform->setDefault('parkinson', $checkParkinson);
+        $mform->setType('parkinson', PARAM_BOOL);
+        $mform->addElement('html', '</div>');
+
+
+        $mform->addElement('html', '<div class="card p-3 mb-3">');
+        $mform->addElement('html', '<h2 class="h3">Autre</h2>');
+
+
+
+        if($displayGuiding){
+            $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
+            $mform->setDefault('guiding', $checkguiding);
+            $mform->addHelpButton('guiding', 'guidingwarning', 'local_celeneaccessibility');
+            $mform->setType('guiding', PARAM_BOOL);
+        }
+
+
+        if($displayTTS){
+            $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
+            $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
+            $mform->setDefault('tts', $checktts);
+            $mform->setType('tts', PARAM_BOOL);
+        }
+
         $mform->addElement('html', '<div class="card bg-secondary w-50 mx-auto p-2 d-flex flex-row" id="tts-option-card">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle mr-2" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -198,7 +202,5 @@ class local_celeneaccessibility_options_form extends moodleform{
         }
 
         $mform->addElement('html', '</div>');
-
-        $mform->addElement('html', '<br />  <div class="card text-center w-50 mx-auto"><span class="h3">Zone de test</span>Ceci est un texte d\'exemple <br /> sur plusieures lignes <br /> vous permettant de mieux voir la différence une fois que vous aurez <br /> validé votre choix </div>');
     }
 }

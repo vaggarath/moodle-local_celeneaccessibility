@@ -130,7 +130,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $selectLine->setSelected($lowsat);
 
         $templatecontext = [
-            'imageone' => $OUTPUT->image_url('logo', 'local_celeneaccessibility'),
+            'imageone' => $OUTPUT->image_url('Screenshot_2', 'local_celeneaccessibility'),
             'brand' => $OUTPUT->image_url('diag22', 'local_celeneaccessibility'),
         ];
 

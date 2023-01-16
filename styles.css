@@ -75,6 +75,18 @@ body.fsa1 {
     line-height: 2rem;
 }
 
+body.fsa1 .maincalendar .calendarmonth td .day-number-circle .day-number {
+    padding: 0 !important;
+}
+
+body.fsa2 .maincalendar .calendarmonth td .day-number-circle .day-number {
+    padding: 0 !important;
+}
+
+body.fsa3 .maincalendar .calendarmonth td .day-number-circle .day-number {
+    padding: 0 !important;
+}
+
 body.fsa2 {
     font-size: xx-large !important;
     line-height: 2.5rem;

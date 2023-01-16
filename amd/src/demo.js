@@ -26,6 +26,11 @@ export const demo = () =>{
         }else{
             htmlElement.classList.add('dark');
         }
+
+        const navbar = document.getElementsByClassName('navbar-light');
+        for(let i=0; i<navbar.length; i++){
+            if(navbar[i] && navbar[i].classList.contains('bg-dark')) navbar[i].classList.remove('bg-dark');
+        }
     });
 
     //letter spacing

@@ -89,6 +89,8 @@ body.fsa3 .maincalendar .calendarmonth td .day-number-circle .day-number {
 
 body.fsa1 .maincalendar .calendarmonth td .day-number-circle {
     line-height: inherit !important;
+    width: fit-content !important;
+    height: fit-content !important;
 }
 body.fsa2 .maincalendar .calendarmonth td .day-number-circle {
     line-height: inherit !important;

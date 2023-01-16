@@ -87,6 +87,20 @@ body.fsa3 .maincalendar .calendarmonth td .day-number-circle .day-number {
     padding: 0 !important;
 }
 
+body.fsa1 .maincalendar .calendarmonth td .day-number-circle {
+    line-height: inherit !important;
+}
+body.fsa2 .maincalendar .calendarmonth td .day-number-circle {
+    line-height: inherit !important;
+    width: fit-content;
+    height: fit-content;
+}
+body.fsa3 .maincalendar .calendarmonth td .day-number-circle {
+    line-height: inherit !important;
+    height: fit-content;
+    width: fit-content;
+}
+
 body.fsa2 {
     font-size: xx-large !important;
     line-height: 2.5rem;

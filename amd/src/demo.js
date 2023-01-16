@@ -21,15 +21,20 @@ export const demo = () =>{
     //dark mode
     const darkBtn = document.getElementById('id_dark');
     darkBtn.addEventListener('click', ()=>{
+        const navbar = document.getElementsByClassName('navbar-light');
         if(htmlElement.classList.contains('dark')){
             htmlElement.classList.remove('dark');
+            for(let i=0; i<navbar.length; i++){
+                if(navbar[i] && navbar[i].classList.contains('bg-dark')) navbar[i].classList.remove('bg-dark');
+            }
         }else{
             htmlElement.classList.add('dark');
-        }
-
-        const navbar = document.getElementsByClassName('navbar-light');
-        for(let i=0; i<navbar.length; i++){
-            if(navbar[i] && navbar[i].classList.contains('bg-dark')) navbar[i].classList.remove('bg-dark');
+            for(let i=0; i<navbar.length; i++){
+                if(navbar[i] && !navbar[i].classList.contains('bg-dark')){
+                    if(navbar[i].classList.contains('bg-white')) navbar[i].classList.remove('bg-white');
+                    navbar[i].classList.add('bg-dark');
+                }
+            }
         }
     });
 

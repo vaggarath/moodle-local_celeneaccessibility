@@ -4,6 +4,12 @@
     font-style: normal;
     font-weight: normal;
 }
+@font-face {
+    font-family: 'Andika';
+    src: url([[font:theme|AndikaNewBasic-R.woff]]);
+    font-style: normal;
+    font-weight: normal;
+}
 body.ls2 {
     letter-spacing: 0.3rem !important;
 }
@@ -51,6 +57,10 @@ body.verdana{
 
 body.courier {
     font-family: 'Courier New', monospace !important;
+}
+
+body.andika {
+    font-family: 'Andika', monospace !important;
 }
 
 /*troubles moteurs*/

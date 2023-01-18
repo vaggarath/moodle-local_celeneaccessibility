@@ -66,6 +66,7 @@ class local_celeneaccessibility_options_form extends moodleform{
             'arial'=>'Arial',
             'verdana'=>'Verdana',
             'courier'=>'Courier',
+            'andika' =>'Andika'
             // 'helvetica'=>'Helvetica Neue' //je suis tombé sur un article disant qu'elle n'est pas websafe. Je vais chercher avant de la proposer
         );
         $fontChoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontChoice);

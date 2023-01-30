@@ -4,13 +4,16 @@ define(['jquery', 'core/log'], function () {
 
 document.body.addEventListener('contextmenu', (e)=>{
 
+    // const htmlEl = document.getElementsByTagName("html")[0];
+    const bodyEl = document.body;
+
     if(document.getElementById('context-menu')){
         if(!e.target.classList.contains("item")){ //vérifier qu'on ne click pas sur une option du menu
           document.getElementById('context-menu').remove();
         }
     }
 
-    if(document.body.classList.contains('tts') && isClassForbiddenTts(e)){
+    if(bodyEl.classList.contains('tts') && isClassForbiddenTts(e)){
         //cf celeneaccessibility branch ne sactive que si on a activé l'option dans l'accessibilité
         e.preventDefault();
         if(e.target.innerText){
@@ -95,6 +98,7 @@ document.body.addEventListener('contextmenu', (e)=>{
             contextMenuItemSecond.onclick = (e) =>{
                 e.preventDefault();
                 navigator.clipboard.writeText(event.target.innerText).then(()=>{
+                    new Toast("Texte copié : " + "\n" + event.target.innerText, "#00b894" , 2500);
                     contextMenu.remove();
                 });
             };
@@ -126,6 +130,7 @@ document.body.addEventListener('contextmenu', (e)=>{
                     contextMenuItemThird.classList.add('item');
                     contextMenuItemThird.onclick = (e) =>{
                         e.preventDefault();
+                        new Toast("Sélection copiée : " + "\n" + text, "#00b894" , 2500);
                         navigator.clipboard.writeText(text).then(()=>{
                             contextMenu.remove();
                         });
@@ -162,7 +167,12 @@ document.body.addEventListener('contextmenu', (e)=>{
                 contextMenu.append(contextMenuItemThird);
             }
             contextMenu.append(contextMenuItemFourth);
-            contextMenu.append(contextMenuItemFifth);
+
+            // if(htmlEl.classList.contains('dark')){
+            //    contextMenu.append(contextMenuItemFifth);
+            // }
+
+
             contextMenu.append(contextMenuItemSixth);
             document.body.append(contextMenu);
 
@@ -349,6 +359,55 @@ document.body.addEventListener('click', (e)=>{
     }
 });
 
+class Toast {
+    constructor(textToDisplay,color,time){
+      this.message = textToDisplay;
+      this.color = color;
+      this.time = time;
+      this.element = null;
+
+      const element = document.createElement('div');
+      element.className = "toast-notification";
+      this.element = element;
+      const countElements = document.getElementsByClassName("toast-notification");
+
+      element.style.opacity=0.8;
+
+      element.style.marginBottom = (countElements.length * 55) + "px";
+
+      element.style.backgroundColor = this.color;
+
+      const message = document.createElement("div");
+      message.className = "message-container";
+      message.textContent = this.message;
+
+      element.appendChild(message);
+
+      const close = document.createElement("div");
+      close.className = "close-notification";
+
+      const icon = document.createElement("i");
+      icon.className = "lni lni-close";
+
+
+
+
+      close.appendChild(icon);
+
+
+      element.append(close);
+
+      document.body.appendChild(element);
+
+      setTimeout(function() {
+        element.remove();
+      }, this.time);
+
+      close.addEventListener("click",()=>{
+        element.remove();
+      });
+    }
+  }
 
 
 // };

@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Inside your child theme (or in your boost theme if you're so crude to touche core code) you need to add these to your template context
+ * Inside your child theme (or in your boost theme if you're so crude as to touche core code) you need to add these to your template context
  */
 
 $templatecontext = [

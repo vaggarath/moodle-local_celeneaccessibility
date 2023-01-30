@@ -1,6 +1,6 @@
 # Celeneaccessibility
 ## Theme necessities to use the plugin
-```Important : Tested only with Moodle 4.0.1 & higher```
+```Important : Tested only with Moodle 4.1.1 & higher```
 #### Pre-requisites
  - You theme needs to be a child of the Boost theme.
  - The last moodle recommanded version of grunt needs to be installed.
@@ -49,8 +49,9 @@ Inside drawers.php don't forget to change the theme name !
 Inside your theme you need to run the grunt command in order to compile the js files and be able to exploit them :
 ```shell
 x$: cd path/to/your/moodle/theme/yourtheme
-x$: grunt amd
+x$: grunt amd --force
 ```
+NB : You'll need the --force parameter in order to bypass a warning grunt is issuing for the TTS option
 
 ### Potential error with Grunt
 It's very unlikely if you use the last version of grunt & eshint but you may get an "err_func_loop" error from grunt when compiling.
@@ -58,3 +59,17 @@ This error is a false positive. You can either shut the error off by giving inst
 ```
 grunt amd --force
 ```
+
+### Available options :
+1. Dark theme
+2. Blue light filter
+3. Text size
+4. Fonts choice
+5. Letters spacing
+6. Words spacing
+7. Interline
+8. Text case
+9. Images' color rendering
+10. Clic and selection improvment for motor impaired user
+11. Reading guide line (activation on ESC key)
+12. Text To Speech option (on right click)

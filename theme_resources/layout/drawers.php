@@ -30,10 +30,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'bodyattributes' => $OUTPUT->body_attributes(\theme_celene4boost\extraclasses::getExtraClasses()),
-    'theme_mode' => \theme_celene4boost\extraclasses::darkMode() ? 'dark' : null,
-    'bgnavbar' => \theme_celene4boost\extraclasses::darkMode() ? 'bg-dark' : null,
-    'guiding' => \theme_celene4boost\extraclasses::helper(),
+    'bodyattributes' => $OUTPUT->body_attributes(\theme_YOUR_THEME_NAME\extraclasses::getExtraClasses()),
+    'theme_mode' => \theme_YOUR_THEME_NAME\extraclasses::darkMode() ? 'dark' : null,
+    'bgnavbar' => \theme_YOUR_THEME_NAME\extraclasses::darkMode() ? 'bg-dark' : null,
+    'guiding' => \theme_YOUR_THEME_NAME\extraclasses::helper(),
 ];
 
-echo $OUTPUT->render_from_template('theme_celene4boost/drawers', $templatecontext);
+echo $OUTPUT->render_from_template('theme_YOUR_THEME_NAME/drawers', $templatecontext);

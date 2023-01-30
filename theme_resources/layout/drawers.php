@@ -24,117 +24,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir . '/behat/lib.php');
-require_once($CFG->dirroot . '/course/lib.php');
-
-$bgnavbar = 'bg-white';
-
-//letter spacing
-$letterspacing = null;
-if(get_user_preferences('theme_yourthemename_letter')){
-    $pref = get_user_preferences('theme_yourthemename_letter');
-    $letterspacing = "ls".$pref;
-    $mode .= ' '.$letterspacing;
-}
-
-if (defined('BEHAT_SITE_RUNNING')) {
-    $blockdraweropen = true;
-}
-
-$extraclasses = ['uses-drawers'];
-if ($courseindexopen) {
-    $extraclasses[] = 'drawer-open-index';
-}
-
-if ($mode == 'dark') {
-    $extraclasses[] = 'dark';
-}
-
-$letter = get_user_preferences('theme_yourthemename_letter') && get_user_preferences('theme_yourthemename_letter') ? "ls".get_user_preferences('theme_yourthemename_letter') : '';
-if($letter){
-    $extraclasses[] =$letter;
-}
-
-$word = get_user_preferences('theme_yourthemename_word') && get_user_preferences('theme_yourthemename_word') ? "ws".get_user_preferences('theme_yourthemename_word') : '';
-if($word){
-    $extraclasses[] =$word;
-}
-
-$line = get_user_preferences('theme_yourthemename_line') && get_user_preferences('theme_yourthemename_line') ? "linesp".get_user_preferences('theme_yourthemename_line') : '';
-if($line){
-    $extraclasses[] =$line;
-}
-
-$rate = get_user_preferences('theme_yourthemename_rate') && get_user_preferences('theme_yourthemename_rate') ? "rate".get_user_preferences('theme_yourthemename_rate') : '';
-if($rate){
-    $extraclasses[] =$rate;
-}
-
-$pitch = get_user_preferences('theme_yourthemename_pitch') && get_user_preferences('theme_yourthemename_pitch') ? "pitch".get_user_preferences('theme_yourthemename_pitch') : '';
-if($pitch){
-    $extraclasses[] =$pitch;
-}
-
-$font = get_user_preferences('theme_yourthemename_fontsize') && get_user_preferences('theme_yourthemename_fontsize') ? "fsa".get_user_preferences('theme_yourthemename_fontsize') : '';
-if($font){
-    $extraclasses[] =$font;
-}
-
-$dys = get_user_preferences('theme_yourthemename_dys') ? "dys" : '';
-if($dys){
-    $extraclasses[] =$dys;
-}
-
-$guiding = get_user_preferences('theme_yourthemename_guiding') ? true : false;
-if($guiding){
-    $extraclasses[] = "guiding";
-}
-
-$lowsat = get_user_preferences('theme_yourthemename_lowsat') ? "lowsat".get_user_preferences('theme_yourthemename_lowsat') : '';
-if($lowsat){
-    $extraclasses[] =$lowsat;
-}
-
-$font = get_user_preferences('theme_yourthemename_font') ? get_user_preferences('theme_yourthemename_font') : '';
-if($font){
-    $extraclasses[] =$font;
-}
-
-$parkinson = get_user_preferences('theme_yourthemename_parkinson') ? "parkinson" : '';
-if($parkinson){
-    $extraclasses[] =$parkinson;
-}
-
-$texttransform = get_user_preferences('theme_yourthemename_texttransform');
-if($texttransform){
-    switch($texttransform){
-        case "0" :
-            $extraclasses[] ="";
-            break;
-        case "1" :
-            $extraclasses[] ="majuscule";
-            break;
-        case "2" :
-            $extraclasses[] ="minuscule";
-            break;
-        case "3" :
-            $extraclasses[] ="capitale";
-            break;
-        default: $extraclasses[] = "";
-    }
-
-}
-
-$tts = get_user_preferences('theme_yourthemename_tts') ? "tts" : '';
-if($tts){
-    $extraclasses[] =$tts;
-}
-
+/**
+ * Inside your child theme (or in your boost theme if you're so crude to touche core code) you need to add these to your template context
+ */
 
 $templatecontext = [
-    'theme_mode' => $mode,
-    'bgnavbar' => $bgnavbar,
-    'guiding' => $guiding,
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'bodyattributes' => $OUTPUT->body_attributes(\theme_celene4boost\extraclasses::getExtraClasses()),
+    'theme_mode' => \theme_celene4boost\extraclasses::darkMode() ? 'dark' : null,
+    'bgnavbar' => \theme_celene4boost\extraclasses::darkMode() ? 'bg-dark' : null,
+    'guiding' => \theme_celene4boost\extraclasses::helper(),
 ];
 
-echo $OUTPUT->render_from_template('yourtheme/drawers', $templatecontext);
+echo $OUTPUT->render_from_template('theme_celene4boost/drawers', $templatecontext);

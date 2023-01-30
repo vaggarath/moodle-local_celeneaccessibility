@@ -73,3 +73,6 @@ grunt amd --force
 10. Clic and selection improvment for motor impaired user
 11. Reading guide line (activation on ESC key)
 12. Text To Speech option (on right click)
+![preview](./accessibilite-1-up.png "preview 1")
+![preview](./accessibilite-2-down.png "preview 2")
+![preview](./accessibilite-3-TTS.png "preview 3")

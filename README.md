@@ -1,5 +1,7 @@
 # Celeneaccessibility
 
+## Important : This plugin is still in early bêta! It works fine so far but no in depth test has been performed yet.
+
 ### Why this plugin?
 This plugin respond to a need to add more options for user experience.
 I called it an accessibility plugin but it's more a user experience improver.

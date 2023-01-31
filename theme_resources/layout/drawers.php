@@ -34,6 +34,7 @@ $templatecontext = [
     'theme_mode' => \theme_YOUR_THEME_NAME\extraclasses::darkMode() ? 'dark' : null,
     'bgnavbar' => \theme_YOUR_THEME_NAME\extraclasses::darkMode() ? 'bg-dark' : null,
     'guiding' => \theme_YOUR_THEME_NAME\extraclasses::helper(),
+    'language' => \theme_YOUR_THEME_NAME\extraclasses::getLanguage(),
 ];
 
 echo $OUTPUT->render_from_template('theme_YOUR_THEME_NAME/drawers', $templatecontext);

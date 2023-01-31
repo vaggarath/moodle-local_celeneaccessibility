@@ -56,6 +56,7 @@ $customdata = array('options' => array(
     'texttransform' => get_user_preferences('theme_celene4boost_texttransform', null, $USER->id),
     'fontchoice' => get_user_preferences('theme_celene4boost_font', null, $USER->id),
     'bluelight' => get_user_preferences('theme_celene4boost_blue', null, $USER->id),
+    'choosedlanguage' => get_user_preferences('theme_celene4boost_language', null, $USER->id),
 ));
 
 $messageform = new local_celeneaccessibility_options_form(null, $customdata);
@@ -78,6 +79,7 @@ if ($messageform->is_cancelled()){
     unset_user_preference('theme_celene4boost_texttransform', $USER->id);
     unset_user_preference('theme_celene4boost_font', $USER->id);
     unset_user_preference('theme_celene4boost_blue', $USER->id);
+    unset_user_preference('theme_celene4boost_language', $USER->id);
 
     redirect(new moodle_url('/local/celeneaccessibility/index.php'));
 
@@ -95,6 +97,7 @@ if ($messageform->is_cancelled()){
     $textTransform = required_param('texttransform', PARAM_INT);
     $fontchoice = required_param('fontchoice', PARAM_TEXT);
     $bluelight = required_param('bluechoice', PARAM_TEXT);
+    $language = required_param('languagechooser', PARAM_TEXT);
 
     if (isset($dark) && !empty($dark)) {
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
@@ -198,6 +201,12 @@ if ($messageform->is_cancelled()){
         }
     }else{
         unset_user_preference('theme_celene4boost_texttransform', $USER->id);
+    }
+
+    if (isset($language) && !empty($language)) {
+        set_user_preference('theme_celene4boost_language', $language, $USER->id);
+    }else{
+        unset_user_preference('theme_celene4boost_language', $USER->id);
     }
 
     redirect(new moodle_url('/local/celeneaccessibility/index.php'));

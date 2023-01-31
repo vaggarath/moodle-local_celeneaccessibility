@@ -77,3 +77,4 @@ $string['chooselanguagedescription'] = "Enable to change the language of the voi
 $string['frenchlanguage'] = "French";
 $string['englishlanguage'] = "English";
 $string['ttsinformation'] = 'The reading option by synthetic voice is activated on mouse right click on the wanted text';
+$string['languagechooser'] = "Choose the voice language";

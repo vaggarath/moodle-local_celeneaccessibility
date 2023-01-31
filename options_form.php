@@ -23,6 +23,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $textTransform = $this->_customdata['options']['texttransform'] ? $this->_customdata['options']['texttransform'] : "";
         $font = $this->_customdata['options']['fontchoice'];
         $blueLight = $this->_customdata['options']['bluelight'];
+        $choosedLanguage = $this->_customdata['options']['choosedlanguage'];
         //$casse = $this->_customdata['options']['casse'];
 
         $displayTTS = get_config('local_celeneaccessibility', 'showtts'); //settings pour montrer/cacher l'option TTS
@@ -165,10 +166,27 @@ class local_celeneaccessibility_options_form extends moodleform{
 
 
         if($displayTTS){
+            //display tts option
             $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
             $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
             $mform->setDefault('tts', $checktts);
             $mform->setType('tts', PARAM_BOOL);
+            //permit choosing specific language
+            $defaultLanguage = null;
+            if(get_user_preferences('theme_celene4boost_language')){
+                $defaultLanguage = get_user_preferences('theme_celene4boost_language');
+            }elseif(get_config('local_celeneaccessibility', 'chooselanguage')){
+                $defaultLanguage = get_config('local_celeneaccessibility', 'chooselanguage');
+            }else{
+                $defaultLanguage = "french";
+            }
+
+            $languages = array(
+                "French" => get_string('frenchlanguage', 'local_celeneaccessibility'),
+                'English' => get_string('englishlanguage', 'local_celeneaccessibility')
+            );
+            $selectLine = $mform->addElement('select', 'languagechooser', get_string('languagechooser', 'local_celeneaccessibility'), $languages);
+            $selectLine->setSelected($defaultLanguage);
         }
 
         $mform->addElement('html', '<div class="card bg-secondary w-50 mx-auto p-2 d-flex flex-row" id="tts-option-card">
@@ -196,7 +214,8 @@ class local_celeneaccessibility_options_form extends moodleform{
             $checkguiding ||
             $textTransform ||
             $font ||
-            $blueLight
+            $blueLight ||
+            $choosedLanguage
         ){
             $resetlabel = get_string('reset', 'local_celeneaccessibility');
             $mform->addElement('cancel', 'cancelbutton', $resetlabel);

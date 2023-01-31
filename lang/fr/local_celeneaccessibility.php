@@ -84,3 +84,4 @@ $string['frenchlanguage'] = "Français";
 $string['englishlanguage'] = "Anglais";
 //completion marker
 $string['ttsinformation'] = 'L\'option de lecture par voix de synthèse est activée sur le clic droit de la souris, sur le texte désiré';
+$string['languagechooser'] = "Choisissez la voix de la langue";

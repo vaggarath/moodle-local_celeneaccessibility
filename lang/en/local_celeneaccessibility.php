@@ -70,3 +70,9 @@ $string['adminmessage'] = "Informational message to users";
 $string['countempty'] = "Nombre d'options vides en base";
 $string['cleandb'] = "DB cleaner";
 $string['bluelight'] = "Filter to reduce blue light effect of the screen";
+//settings choose language for tts
+$string['chooselanguage'] = "Choose a language";
+$string['defaultlanguage'] = "Default language is french";
+$string['chooselanguagedescription'] = "Enable to change the language of the voice reading in TTS mode";
+$string['frenchlanguage'] = "French";
+$string['englishlanguage'] = "English";

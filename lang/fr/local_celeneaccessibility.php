@@ -76,3 +76,9 @@ $string['adminmessage'] = "Message d'information à l'attention des utilisateurs
 $string['countempty'] = "Nombre d'options vides en base";
 $string['cleandb'] = "Nettoyage DB";
 $string['bluelight'] = "Filtre pour diminuer l'effet de lumière bleue";
+//settings choose language for tts
+$string['chooselanguage'] = "Choisissez une langue de lecture";
+$string['defaultlanguage'] = "La langue par défaut est le français";
+$string['chooselanguagedescription'] = "Changer la langue de lecture en mode TTS";
+$string['frenchlanguage'] = "Français";
+$string['englishlanguage'] = "Anglais";

@@ -27,6 +27,19 @@ if ($hassiteconfig) {
             '0',
         ));
 
+        $languages = array(
+            'french' => get_string('frenchlanguage', 'local_celeneaccessibility'),
+            'english' => get_string('englishlanguage', 'local_celeneaccessibility')
+        );
+
+        $settings->add(new admin_setting_configselect(
+            'local_celeneaccessibility/chooselanguage',
+            get_string('chooselanguage', 'local_celeneaccessibility'),
+            get_string('chooselanguagedescription', 'local_celeneaccessibility'),
+            get_string('defaultlanguage', 'local_celeneaccessibility'),
+            $languages
+        ));
+
         $settings->add(new admin_setting_confightmleditor('local_celeneaccessibility/adminMessage', get_string('adminmessage', 'local_celeneaccessibility'), '', ''));
     }
 }

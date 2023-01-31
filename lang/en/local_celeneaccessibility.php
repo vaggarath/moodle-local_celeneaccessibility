@@ -76,3 +76,4 @@ $string['defaultlanguage'] = "Default language is french";
 $string['chooselanguagedescription'] = "Enable to change the language of the voice reading in TTS mode";
 $string['frenchlanguage'] = "French";
 $string['englishlanguage'] = "English";
+$string['ttsinformation'] = 'The reading option by synthetic voice is activated on mouse right click on the wanted text';

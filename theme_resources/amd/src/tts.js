@@ -1,7 +1,4 @@
-define(['jquery', 'core/log'], function () {
-});
-// export const tts = () =>{
-
+export const init = (language) =>{
 document.body.addEventListener('contextmenu', (e)=>{
 
     // const htmlEl = document.getElementsByTagName("html")[0];
@@ -46,7 +43,12 @@ document.body.addEventListener('contextmenu', (e)=>{
             contextMenuItemFirst.onclick = () =>{
                 e.preventDefault();
                 createOptionsBar(event);
-                utterThis.lang = 'fr-FR';
+                //default 'fr-FR';
+                utterThis.lang = language && language === "french"
+                    ? "fr-FR"
+                    : language && language === "english"
+                        ? "en-US"
+                        : "fr-FR";
                 utterThis.rate = getRateValueTts() ? getRateValueTts() : 1;
                 utterThis.pitch = getPitchValue() ? getPitchValue() : 1;
                 synth.speak(utterThis);
@@ -408,6 +410,4 @@ class Toast {
       });
     }
   }
-
-
-// };
+};

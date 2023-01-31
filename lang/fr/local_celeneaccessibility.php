@@ -82,3 +82,5 @@ $string['defaultlanguage'] = "La langue par défaut est le français";
 $string['chooselanguagedescription'] = "Changer la langue de lecture en mode TTS";
 $string['frenchlanguage'] = "Français";
 $string['englishlanguage'] = "Anglais";
+//completion marker
+$string['ttsinformation'] = 'L\'option de lecture par voix de synthèse est activée sur le clic droit de la souris, sur le texte désiré';

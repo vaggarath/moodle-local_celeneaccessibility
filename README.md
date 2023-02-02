@@ -1,10 +1,12 @@
 # Celeneaccessibility
 
-## Important : This plugin is still in early bêta! It works fine so far but no in depth test has been performed yet.
+## Important : This plugin is still in early bêta! It works fine so far but no "in depth" test has been performed yet.
+Another important thing to take in consideration is that this plugin doesn't have the purpose to bypass moodle in core accessibility functionnality but to propose other tools to enhance / provide better experience if possible.
+Even more important: In no way does this plugin should be used as an excuse for content writers to not follow accessibility rules. Moodle has several guidelines for good practices to follow when creating content and they should be respected from start to end.
 
 ### Why this plugin?
-This plugin respond to a need to add more options for user experience.
-I called it an accessibility plugin but it's more a user experience improver.
+This plugin respond to a need to add more options for user experience we got from our students and teachers.
+While being called it an accessibility plugin, it's more of an user experience improver.
 We needed a tool to add more to the moodle "in core" accessibility which relies essentially on the teachers way of writtings their course without offering enough tools to enhance the display.
 Some examples:
 
@@ -69,7 +71,19 @@ We trigger the night mode by adding a class to the HTML element.
 
 The class is added through the drawers.php and the head.mustaches files.
 
+If you use a method that use a class on body instead of the html element you'll need to change that into drawers.php and the template file head won't be necessary anymore.
 
+** It should be noted that the bootstrap night mode isn't fully compatible with moodle and some adjustment (nothing too dramatic) may be needed into you css/scss file **
+
+### How to activate
+For user experience we made a custom link into the navbar (with fontawesome icon) but we, at first, made a custom link into the customusermenuitems.
+If it's the chosen option, the way to do is pretty straight forward : Go to administration > presentation > theme settings and navigate down to the custom user menu items and inside it copy paste the following line : Accessibility|/local/celeneaccessibility/index.php
+
+### Plugin settings
+- The plugin has a setting page in the administration part of the site. It's nothing to tedious : It's to activate (or not) the TTS option, (we need it but it can be unnecessary).
+- Same for the guiding line.
+- Force the TTS default's language. This can be override by the user for him/herself. Only to language are proposed for the moment which are french and english.
+- Administrator message : It's to write a text which'll be displayed on the user accessibility page.
 
 ![preview](./accessibilite-1-up.png "preview 1")
 ![preview](./accessibilite-2-down.png "preview 2")

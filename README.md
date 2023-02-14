@@ -12,7 +12,7 @@ Some examples:
 
 - Someone with visual deficiency may need to enlarge the text or may need to make the images' colors more vivid.
 
-- The Dys community has even more issues to be addressed and writting this plugin was quite a challenge because we realised along the way that being a dys is being unique. Every dys has it's own way to apprehend reading and, overall, learning. Some needs special fonts while other will struggle with words, letters or line spacing. On another side of the spectrum, some have concentration trouble which can also be helped thanks to a reading helper which enhance only a couple of lines of reading while "caching" whats around, up and down.
+- The Dys community has even more issues to be addressed and writting this plugin was quite a challenge because we realised along the way that being a dys is being unique. Every dys has it's own way to apprehend reading and, overall, learning. Some needs special fonts while other will struggle with words, letters or line spacing. On another side of the spectrum, some have concentration trouble which can also be helped thanks to a reading helper which enhance only a couple of lines of reading while "caching" whats around, up and down.https://moodle.org/plugins/local_celeneaccessibilitykhttps://moodle.org/plugins/local_celeneaccessibility
 
 - We also added a text to speech option. As much as a gadget as it seems, it may provide a usefull tool for some that do not have financial means to get a more professional tool.
 

@@ -18,7 +18,7 @@
  * An accessibility plugin to enhance user experience
  *
  * @package   local_celeneaccessibility
- * @copyright 2022 Chambon Julien - Université de Tours
+ * @copyright 2022 Chambon Julien - UT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

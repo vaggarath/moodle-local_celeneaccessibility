@@ -1,6 +1,14 @@
 import console from 'core/log';
 
 export const demo = () =>{
+    //set localstorage for disconnected dark mode
+    if(document.getElementById('id_dark')){
+        document.getElementById('id_dark').addEventListener('click', (e)=>{
+            const checker = e.target.checked;
+                localStorage.setItem('darkMode', checker);
+        });
+    }
+
     //fontsize change
     const body = document.body;
     const htmlElement = document.getElementsByTagName("html")[0];

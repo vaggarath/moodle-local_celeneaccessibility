@@ -78,3 +78,4 @@ $string['frenchlanguage'] = "French";
 $string['englishlanguage'] = "English";
 $string['ttsinformation'] = 'The reading option by synthetic voice is activated on mouse right click on the wanted text';
 $string['languagechooser'] = "Choose the voice language";
+$string['darkBtnOpt'] = "Quick access button for dark mode in top navigation bar";

@@ -47,7 +47,7 @@ class local_celeneaccessibility_options_form extends moodleform{
         $blueLight = $this->_customdata['options']['bluelight'];
         $choosedLanguage = $this->_customdata['options']['choosedlanguage'];
         //$casse = $this->_customdata['options']['casse'];
-
+        $checkDarkBtn =$this->_customdata['options']['darkbtn'] === "darkbtn" ? 1 : 0;
         $displayTTS = get_config('local_celeneaccessibility', 'showtts'); //settings pour montrer/cacher l'option TTS
         $displayGuiding = get_config('local_celeneaccessibility', 'showguiding');
 
@@ -61,9 +61,21 @@ class local_celeneaccessibility_options_form extends moodleform{
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Confort visuel</h2>');
 
-        $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
-        $mform->setType('dark', PARAM_BOOL);
-        $mform->setDefault('dark', $checkDark);
+
+
+        //dark mode
+        $mform->addElement('html', '<div class="w-100 d-flex justify-content-around">');
+            $mform->addElement('html', '<div class="w-50">');
+                $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
+                $mform->setType('dark', PARAM_BOOL);
+                $mform->setDefault('dark', $checkDark);
+            $mform->addElement('html', '</div>');
+            $mform->addElement('html', '<div class="w-50">');
+                $mform->addElement('advcheckbox', 'darkbtn', get_string('darkBtnOpt', 'local_celeneaccessibility'), '');
+                $mform->setType('darktn', PARAM_BOOL);
+                $mform->setDefault('darkbtn', $checkDarkBtn);
+            $mform->addElement('html', '</div>');
+        $mform->addElement('html', '</div>');
 
         $blueChoice = $mform->addElement('advcheckbox', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), '');
         // $blueChoice->setSelected($blueLight);
@@ -237,7 +249,8 @@ class local_celeneaccessibility_options_form extends moodleform{
             $textTransform ||
             $font ||
             $blueLight ||
-            $choosedLanguage
+            $choosedLanguage ||
+            $checkDarkBtn
         ){
             $resetlabel = get_string('reset', 'local_celeneaccessibility');
             $mform->addElement('cancel', 'cancelbutton', $resetlabel);

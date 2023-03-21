@@ -5,8 +5,8 @@
     font-weight: normal;
 }
 @font-face {
-    font-family: 'Andika';
-    src: url([[font:theme|AndikaNewBasic-R.woff]]);
+    font-family: 'andika';
+    src: url("./fonts/Andika-Regular.woff");
     font-style: normal;
     font-weight: normal;
 }
@@ -60,7 +60,7 @@ body.courier {
 }
 
 body.andika {
-    font-family: 'Andika', monospace !important;
+    font-family: "andika", monospace !important;
 }
 
 /*troubles moteurs*/
@@ -508,3 +508,19 @@ body.blue-filter-light:before {
     color:white;
     cursor:pointer;
   }
+
+  /*dark theme fix*/
+  html.dark .activitytitle:hover{
+    color: #202020 !important;
+  }
+
+/* questions */
+html.dark > #page-mod-quiz-edit .section-heading .instanceshufflequestions{
+    color: #202020;
+}
+html.dark .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-bd,
+html.dark .jschooser .choosercontainer #chooseform .instruction,
+html.dark .jschooser .choosercontainer #chooseform .typesummary,
+[id^=fitem_id_feedback_],[id^=fitem_id_answer],[id^=fitem_id_fraction_]{
+    background-color: #202020 !important;
+}

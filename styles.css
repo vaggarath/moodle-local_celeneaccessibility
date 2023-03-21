@@ -518,6 +518,7 @@ body.blue-filter-light:before {
 html.dark > #page-mod-quiz-edit .section-heading .instanceshufflequestions{
     color: #202020;
 }
+
 html.dark .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-bd,
 html.dark .jschooser .choosercontainer #chooseform .instruction,
 html.dark .jschooser .choosercontainer #chooseform .typesummary,

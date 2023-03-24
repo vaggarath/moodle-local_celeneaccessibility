@@ -514,7 +514,7 @@ body.blue-filter-light:before {
     color: #202020 !important;
   }
 
-/* questions */
+/* questions
 html.dark > #page-mod-quiz-edit .section-heading .instanceshufflequestions{
     color: #202020;
 }
@@ -524,4 +524,4 @@ html.dark .jschooser .choosercontainer #chooseform .instruction,
 html.dark .jschooser .choosercontainer #chooseform .typesummary,
 [id^=fitem_id_feedback_],[id^=fitem_id_answer],[id^=fitem_id_fraction_]{
     background-color: #202020 !important;
-}
+} */

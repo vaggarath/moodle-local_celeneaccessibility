@@ -47,3 +47,11 @@ function add_htmlattributes() {
         return $classattr['class'] = 'machintruc';
     }
 }
+
+function local_celeneaccessibility_before_footer() {
+    global $PAGE;
+
+    $language = \theme_celene4boost\extraclasses::getLanguage();
+    $PAGE->requires->js_call_amd('local_celeneaccessibility/tts', 'init', [$language]);
+    $PAGE->requires->js_call_amd('local_celeneaccessibility/guiding');
+}

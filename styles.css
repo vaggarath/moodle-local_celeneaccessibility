@@ -513,15 +513,3 @@ body.blue-filter-light:before {
   html.dark .activitytitle:hover{
     color: #202020 !important;
   }
-
-/* questions
-html.dark > #page-mod-quiz-edit .section-heading .instanceshufflequestions{
-    color: #202020;
-}
-
-html.dark .chooserdialogue .moodle-dialogue-wrap .moodle-dialogue-bd,
-html.dark .jschooser .choosercontainer #chooseform .instruction,
-html.dark .jschooser .choosercontainer #chooseform .typesummary,
-[id^=fitem_id_feedback_],[id^=fitem_id_answer],[id^=fitem_id_fraction_]{
-    background-color: #202020 !important;
-} */

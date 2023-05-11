@@ -33,13 +33,13 @@ export const demo = () =>{
         if(htmlElement.classList.contains('dark')){
             htmlElement.classList.remove('dark');
             for(let i=0; i<navbar.length; i++){
-                if(navbar[i] && navbar[i].classList.contains('bg-dark')) navbar[i].classList.remove('bg-dark');
+                if(navbar[i] && navbar[i].classList.contains('bg-dark')) {navbar[i].classList.remove('bg-dark');}
             }
         }else{
             htmlElement.classList.add('dark');
             for(let i=0; i<navbar.length; i++){
                 if(navbar[i] && !navbar[i].classList.contains('bg-dark')){
-                    if(navbar[i].classList.contains('bg-white')) navbar[i].classList.remove('bg-white');
+                    if(navbar[i].classList.contains('bg-white')) {navbar[i].classList.remove('bg-white');}
                     navbar[i].classList.add('bg-dark');
                 }
             }

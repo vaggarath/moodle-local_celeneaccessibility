@@ -103,7 +103,7 @@ if ($messageform->is_cancelled()){
     $textTransform = required_param('texttransform', PARAM_INT);
     $fontchoice = required_param('fontchoice', PARAM_TEXT);
     $bluelight = required_param('bluechoice', PARAM_TEXT);
-    $language = required_param('languagechooser', PARAM_TEXT);
+    $language = $displayTTS ?  required_param('languagechooser', PARAM_TEXT) : null;
     $darkbtn = required_param('darkbtn', PARAM_TEXT);
 
     if (isset($dark) && !empty($dark)) {

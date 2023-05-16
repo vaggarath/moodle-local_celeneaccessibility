@@ -74,15 +74,16 @@ export const demo = () =>{
         }
     });
 
-    const ttsCheck = document.getElementById('id_tts');
-    ttsCheck.addEventListener('click', ()=>{
-        if(body.classList.contains('tts')){
-            body.classList.remove('tts');
-        }else{
-            body.classList.add('tts');
-        }
-    });
-
+    if(document.getElementById('id_tts')){
+        const ttsCheck = document.getElementById('id_tts');
+        ttsCheck.addEventListener('click', ()=>{
+            if(body.classList.contains('tts')){
+                body.classList.remove('tts');
+            }else{
+                body.classList.add('tts');
+            }
+        });
+    }
     const linespCheck = document.getElementById('id_linespacing');
     linespCheck.addEventListener('change', (e)=>{
         const linespValue = "linesp"+e.target.value;

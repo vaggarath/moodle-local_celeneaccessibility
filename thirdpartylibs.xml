@@ -8,22 +8,15 @@
         <licenseversion>3.0</licenseversion>
     </library>
     <library>
-        <location>OpenDyslexic-Italic</location>
-        <name>OpenDyslexic-Bold</name>
+        <location>fonts/OpenDyslexic-Italic.otf</location>
+        <name>OpenDyslexic-Italic</name>
         <version>0.910.12</version>
         <license>CCA</license>
         <licenseversion>3.0</licenseversion>
     </library>
     <library>
-        <location>OpenDyslexic-Regular.woff</location>
-        <name>OpenDyslexic-Bold</name>
-        <version>0.910.12</version>
-        <license>CCA</license>
-        <licenseversion>3.0</licenseversion>
-    </library>
-    <library>
-        <location>OpenDyslexic-Regular.woff</location>
-        <name>OpenDyslexic-Bold</name>
+        <location>fonts/OpenDyslexic-Regular.woff</location>
+        <name>OpenDyslexic-Regular</name>
         <version>0.910.12</version>
         <license>CCA</license>
         <licenseversion>3.0</licenseversion>

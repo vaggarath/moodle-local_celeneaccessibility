@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>fonts/OpenDyslexic-Bold.otf</location>
+        <name>OpenDyslexic-Bold</name>
+        <version>0.910.12</version>
+        <license>CCA</license>
+        <licenseversion>3.0</licenseversion>
+    </library>
+    <library>
+        <location>OpenDyslexic-Italic</location>
+        <name>OpenDyslexic-Bold</name>
+        <version>0.910.12</version>
+        <license>CCA</license>
+        <licenseversion>3.0</licenseversion>
+    </library>
+    <library>
+        <location>OpenDyslexic-Regular.woff</location>
+        <name>OpenDyslexic-Bold</name>
+        <version>0.910.12</version>
+        <license>CCA</license>
+        <licenseversion>3.0</licenseversion>
+    </library>
+    <library>
+        <location>OpenDyslexic-Regular.woff</location>
+        <name>OpenDyslexic-Bold</name>
+        <version>0.910.12</version>
+        <license>CCA</license>
+        <licenseversion>3.0</licenseversion>
+    </library>
+</libraries>

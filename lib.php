@@ -40,14 +40,6 @@ function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofi
     $tree->add_node($localnode);
 }
 
-function add_htmlattributes() {
-    $mode = get_user_preferences('theme_celene4boost_mode', '');
-    if ($mode == 'dark') {
-        $classattr = array();
-        return $classattr['class'] = 'machintruc';
-    }
-}
-
 function local_celeneaccessibility_before_footer() {
     global $PAGE;
 

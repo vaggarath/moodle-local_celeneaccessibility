@@ -21,12 +21,11 @@
  * @copyright 2022 Chambon Julien - UT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-
-global $USER, $CFG, $PAGE, $OUTPUT;
 require_once("../../config.php");
+global $USER, $CFG, $PAGE, $OUTPUT;
+
 require_once($CFG->libdir . '/adminlib.php');
-require_once($CFG->dirroot. '/local/celeneaccessibility/options_form.php');
+require_once($CFG->dirroot . '/local/celeneaccessibility/options_form.php');
 
 require_login();
 $context = context_system::instance();
@@ -40,13 +39,10 @@ $PAGE->set_pagelayout('standard');
 $PAGE->set_title($SITE->fullname);
 
 $PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
-/**
- * get_user_preferences($nom, $defaultValue, $userId)
- */
 
-//check if settings exist or not. If not then tts & guiging shouldn't exists
-$displayTTS = get_config('local_celeneaccessibility', 'showtts'); //settings pour montrer/cacher l'option TTS
-$displayGuiding = get_config('local_celeneaccessibility', 'showguiding');
+// check if settings exist or not. If not then tts & guiging shouldn't exists
+$displaytts = get_config('local_celeneaccessibility', 'showtts'); // settings pour montrer/cacher l'option TTS
+$displayguiding = get_config('local_celeneaccessibility', 'showguiding');
 
 $customdata = array('options' => array(
     'dark' => get_user_preferences('theme_celene4boost_mode', null, $USER->id),
@@ -67,18 +63,17 @@ $customdata = array('options' => array(
 
 $messageform = new local_celeneaccessibility_options_form(null, $customdata);
 
-if ($messageform->is_cancelled()){
-
+if ($messageform->is_cancelled()) {
     unset_user_preference('theme_celene4boost_mode', $USER->id);
-    if($displayGuiding){
+    if ($displayguiding) {
         unset_user_preference('theme_celene4boost_guiding', $USER->id);
     }
     unset_user_preference('theme_celene4boost_parkinson', $USER->id);
     unset_user_preference('theme_celene4boost_letter', $USER->id);
     unset_user_preference('theme_celene4boost_word', $USER->id);
     unset_user_preference('theme_celene4boost_line', $USER->id);
-    if($displayTTS){
-       unset_user_preference('theme_celene4boost_tts', $USER->id);
+    if ($displaytts) {
+        unset_user_preference('theme_celene4boost_tts', $USER->id);
     }
     unset_user_preference('theme_celene4boost_fontsize', $USER->id);
     unset_user_preference('theme_celene4boost_lowsat', $USER->id);
@@ -89,136 +84,135 @@ if ($messageform->is_cancelled()){
     unset_user_preference('theme_celene4boost_darkbtn', $USER->id);
 
     redirect(new moodle_url('/local/celeneaccessibility/index.php'));
-
-}elseif ($data = $messageform->get_data()) {
+} else if ($data = $messageform->get_data()) {
     $dark = required_param('dark', PARAM_TEXT);
-    $tts = $displayTTS ? required_param('tts', PARAM_TEXT) : null;
+    $tts = $displaytts ? required_param('tts', PARAM_TEXT) : null;
     $ls = required_param('letterspacing', PARAM_TEXT);
     $ws = required_param('wordspacing', PARAM_TEXT);
     $linesp = required_param('linespacing', PARAM_TEXT);
-    $guiding = $displayGuiding ? required_param('guiding', PARAM_TEXT) : null;
+    $guiding = $displayguiding ? required_param('guiding', PARAM_TEXT) : null;
     $parkinson = required_param('parkinson', PARAM_TEXT);
     $fontsize = required_param('fontsizing', PARAM_TEXT);
     $lowsat = required_param('lowsaturizing', PARAM_TEXT);
-    $textTransform = required_param('texttransform', PARAM_INT);
+    $texttransform = required_param('texttransform', PARAM_INT);
     $fontchoice = required_param('fontchoice', PARAM_TEXT);
     $bluelight = required_param('bluechoice', PARAM_TEXT);
-    $language = $displayTTS ?  required_param('languagechooser', PARAM_TEXT) : null;
+    $language = $displaytts ?  required_param('languagechooser', PARAM_TEXT) : null;
     $darkbtn = required_param('darkbtn', PARAM_TEXT);
 
     if (isset($dark) && !empty($dark)) {
         set_user_preference('theme_celene4boost_mode', 'dark', $USER->id);
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_mode', $USER->id);
     }
 
     if (isset($darkbtn) && !empty($darkbtn)) {
         set_user_preference('theme_celene4boost_darkbtn', 'darkbtn', $USER->id);
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_darkbtn', $USER->id);
     }
 
-    if (isset($tts) && !empty($tts) && $displayTTS) {
+    if (isset($tts) && !empty($tts) && $displaytts) {
         set_user_preference('theme_celene4boost_tts', 'tts', $USER->id);
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_tts', $USER->id);
     }
 
-    if (isset($guiding) && !empty($guiding) && $displayGuiding) {
+    if (isset($guiding) && !empty($guiding) && $displayguiding) {
         set_user_preference('theme_celene4boost_guiding', 'guiding', $USER->id);
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_guiding', $USER->id);
     }
 
     if (isset($parkinson) && !empty($parkinson)) {
         set_user_preference('theme_celene4boost_parkinson', 'parkinson', $USER->id);
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_parkinson', $USER->id);
     }
 
-    if(isset($ls) && !empty($ls)){
-        if($ls >= 1){
-          set_user_preference('theme_celene4boost_letter', $ls, $USER->id);
-        }else{
+    if (isset($ls) && !empty($ls)) {
+        if ($ls >= 1) {
+            set_user_preference('theme_celene4boost_letter', $ls, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_letter', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_letter', $USER->id);
     }
 
-    if(isset($ws) && !empty($ws)){
-        if($ws >= 1){
-          set_user_preference('theme_celene4boost_word', $ws, $USER->id);
-        }else{
+    if (isset($ws) && !empty($ws)) {
+        if ($ws >= 1) {
+            set_user_preference('theme_celene4boost_word', $ws, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_word', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_word', $USER->id);
     }
 
-    if(isset($linesp) && !empty($linesp)){
-        if($linesp >= 1){
-          set_user_preference('theme_celene4boost_line', $linesp, $USER->id);
-        }else{
+    if (isset($linesp) && !empty($linesp)) {
+        if ($linesp >= 1) {
+            set_user_preference('theme_celene4boost_line', $linesp, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_line', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_line', $USER->id);
     }
 
-    if(isset($fontchoice) && !empty($fontchoice)){
-        if($fontchoice !== "normal"){
-          set_user_preference('theme_celene4boost_font', $fontchoice, $USER->id);
-        }else{
+    if (isset($fontchoice) && !empty($fontchoice)) {
+        if ($fontchoice !== "normal") {
+            set_user_preference('theme_celene4boost_font', $fontchoice, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_font', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_font', $USER->id);
     }
 
-    if(isset($bluelight) && !empty($bluelight)){
-        if($bluelight !== "normal"){
-          set_user_preference('theme_celene4boost_blue', $bluelight, $USER->id);
-        }else{
+    if (isset($bluelight) && !empty($bluelight)) {
+        if ($bluelight !== "normal") {
+            set_user_preference('theme_celene4boost_blue', $bluelight, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_blue', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_blue', $USER->id);
     }
 
-    if(isset($fontsize) && !empty($fontsize)){
-        if($fontsize >= 1){
-          set_user_preference('theme_celene4boost_fontsize', $fontsize, $USER->id);
-        }else{
+    if (isset($fontsize) && !empty($fontsize)) {
+        if ($fontsize >= 1) {
+            set_user_preference('theme_celene4boost_fontsize', $fontsize, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_fontsize', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_fontsize', $USER->id);
     }
 
-    if(isset($lowsat) && !empty($lowsat)){
-        if($lowsat >= 1){
-          set_user_preference('theme_celene4boost_lowsat', $lowsat, $USER->id);
-        }else{
+    if (isset($lowsat) && !empty($lowsat)) {
+        if ($lowsat >= 1) {
+            set_user_preference('theme_celene4boost_lowsat', $lowsat, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_lowsat', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_lowsat', $USER->id);
     }
 
-    if(isset($textTransform) && !empty($textTransform)){
-        if($textTransform !== "normal"){
-          set_user_preference('theme_celene4boost_texttransform', $textTransform, $USER->id);
-        }else{
+    if (isset($texttransform) && !empty($texttransform)) {
+        if ($texttransform !== "normal") {
+            set_user_preference('theme_celene4boost_texttransform', $texttransform, $USER->id);
+        } else {
             unset_user_preference('theme_celene4boost_texttransform', $USER->id);
         }
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_texttransform', $USER->id);
     }
 
     if (isset($language) && !empty($language)) {
         set_user_preference('theme_celene4boost_language', $language, $USER->id);
-    }else{
+    } else {
         unset_user_preference('theme_celene4boost_language', $USER->id);
     }
 
@@ -227,7 +221,7 @@ if ($messageform->is_cancelled()){
 
 echo $OUTPUT->header();
 
-if(isloggedin() && !isguestuser()){
+if (isloggedin() && !isguestuser()) {
     $messageform->display();
 }
 

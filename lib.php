@@ -22,9 +22,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree, $user, $iscurrentuser, $course) {
+function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree, $user, $iscurrentuser, $course)
+{
     if (!isloggedin() || isguestuser()) {
         return '';
     }
@@ -35,12 +34,21 @@ function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofi
     $name = get_string('menuname', 'local_celeneaccessibility');
     $url = new moodle_url('/local/celeneaccessibility/index.php');
 
-    $localnode =  new core_user\output\myprofile\node('local_celeneaccessibility/management', 'celeneaccessibility',
-            $name, null, $url, null, null,'local-celeneaccessibility');
+    $localnode =  new core_user\output\myprofile\node(
+        'local_celeneaccessibility/management',
+        'celeneaccessibility',
+        $name,
+        null,
+        $url,
+        null,
+        null,
+        'local-celeneaccessibility'
+    );
     $tree->add_node($localnode);
 }
 
-function local_celeneaccessibility_before_footer() {
+function local_celeneaccessibility_before_footer()
+{
     global $PAGE;
 
     $language = \theme_celene4boost\extraclasses::getLanguage();

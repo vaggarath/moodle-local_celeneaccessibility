@@ -79,3 +79,14 @@ $string['englishlanguage'] = "English";
 $string['ttsinformation'] = 'The reading option by synthetic voice is activated on mouse right click on the wanted text';
 $string['languagechooser'] = "Choose the voice language";
 $string['darkBtnOpt'] = "Quick access button for dark mode in top navigation bar";
+//privacy settings
+$string['privacy:metadata:theme_celene4boost_darkbtn'] = 'Activation of the accessibility option "dark mode" by the user';
+$string['privacy:metadata:theme_celene4boost_parkinson'] = 'Activation of the accessibility option "elements enhancements" by the user';
+$string['privacy:metadata:theme_celene4boost_letter'] = 'Activation of the accessibility option "letter spacing" by the user';
+$string['privacy:metadata:theme_celene4boost_word'] = 'Activation of the accessibility option "word spacing" by the user';
+$string['privacy:metadata:theme_celene4boost_line'] = 'Activation of the accessibility option "line spacing" by the user';
+$string['privacy:metadata:theme_celene4boost_font'] = 'Activation of the accessibility option "font spacing" by the user';
+$string['privacy:metadata:theme_celene4boost_blue'] = 'Activation of the accessibility option "blue light reducer" by the user';
+$string['privacy:metadata:theme_celene4boost_fontsize'] = 'Activation of the accessibility option "font size" by the user';
+$string['privacy:metadata:theme_celene4boost_lowsat'] = 'Activation of the accessibility option "images color saturation/desaturation" by the user';
+$string['privacy:metadata:theme_celene4boost_texttransform'] = 'Activation of the accessibility option "text transformation" by the user';

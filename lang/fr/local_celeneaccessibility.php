@@ -86,3 +86,14 @@ $string['englishlanguage'] = "Anglais";
 $string['ttsinformation'] = 'L\'option de lecture par voix de synthèse est activée sur le clic droit de la souris, sur le texte désiré';
 $string['languagechooser'] = "Choisissez la voix de la langue";
 $string['darkBtnOpt'] = "Bouton d'accès rapide à l'option dark mode dans la barre de navigation";
+//privacy settings
+$string['privacy:metadata:theme_celene4boost_darkbtn'] = 'Activation de l\'option "dark mode" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_parkinson'] = 'Activation de l\'option "elements enhancements" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_letter'] = 'Activation de l\'option "letter spacing" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_word'] = 'Activation de l\'option "word spacing" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_line'] = 'Activation de l\'option "line spacing" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_font'] = 'Activation de l\'option "font spacing" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_blue'] = 'Activation de l\'option "blue light reducer" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_fontsize'] = 'Activation de l\'option "font size" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_lowsat'] = 'Activation de l\'option "images color saturation/desaturation" par l\'utilisateur';
+$string['privacy:metadata:theme_celene4boost_texttransform'] = 'Activation de l\'option "text transformation" par l\'utilisateur';

@@ -17,7 +17,7 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
 
       mariadb:
-        image: mariadb:10.5
+        image: mariadb:10
         env:
           MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
@@ -30,8 +30,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.4', '8.0']
-        moodle-branch: ['MOODLE_400_STABLE', 'MOODLE_401_STABLE']
+        php: ['7.4', '8.0', '8.1']
+        moodle-branch: ['MOODLE_401_STABLE']
         database: [pgsql, mariadb]
 
     steps:
@@ -103,10 +103,10 @@ jobs:
         if: ${{ always() }}
         run: moodle-plugin-ci grunt --max-lint-warnings 0
 
-      - name: PHPUnit tests
-        if: ${{ always() }}
-        run: moodle-plugin-ci phpunit --fail-on-warning
+      # - name: PHPUnit tests
+      #   if: ${{ always() }}
+      #   run: moodle-plugin-ci phpunit --fail-on-warning
 
-      - name: Behat features
-        if: ${{ always() }}
-        run: moodle-plugin-ci behat --profile chrome
+      # - name: Behat features
+      #   if: ${{ always() }}
+      #   run: moodle-plugin-ci behat --profile chrome

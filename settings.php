@@ -23,11 +23,6 @@
  */
 
 if ($hassiteconfig) {
-    //recuperer toutes les options vides pour les compter et plus tard proposer une option pour les nettoyer
-    $sql = "SELECT *
-            FROM {user_preferences}
-            WHERE name LIKE :name AND value=''";
-    $records = $DB->get_records_sql($sql, array('name'=>"theme_celene4boost_%"));
 
     $settings = new admin_settingpage('local_celeneaccessibility', get_string('pluginname', 'local_celeneaccessibility'));
     $ADMIN->add('localplugins', $settings);

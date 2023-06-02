@@ -513,3 +513,20 @@ body.blue-filter-light:before {
   html.dark .activitytitle:hover{
     color: #202020 !important;
   }
+
+  html.dark .description .course-description-item{
+    color: #202020;
+  }
+
+  html.dark .path-mod .activity-header:not(:empty){
+    color: #202020;
+  }
+
+  html.black fieldset .filter-group label,
+  html.dark .path-grade-report-grader .gradeparent .userrow.odd .cell, html.dark .path-grade-report-grader .gradeparent .floater .cell.odd, html.dark .path-grade-report-grader .gradeparent .heading .cell, html.dark .path-grade-report-grader .gradeparent .cell.category, html.dark .path-grade-report-grader .gradeparent .avg .cell{
+    color: #202020;
+  }
+
+  html.dark .maincalendar .calendarmonth .clickable:hover{
+    color: #202020;
+  }

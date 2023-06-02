@@ -70,7 +70,7 @@ $string['adminmessage'] = "Informational message to users";
 $string['countempty'] = "Nombre d'options vides en base";
 $string['cleandb'] = "DB cleaner";
 $string['bluelight'] = "Filter to reduce blue light effect of the screen";
-//settings choose language for tts
+// settings choose language for tts
 $string['chooselanguage'] = "Choose a language";
 $string['defaultlanguage'] = "Default language is french";
 $string['chooselanguagedescription'] = "Enable to change the language of the voice reading in TTS mode";
@@ -79,7 +79,7 @@ $string['englishlanguage'] = "English";
 $string['ttsinformation'] = 'The reading option by synthetic voice is activated on mouse right click on the wanted text';
 $string['languagechooser'] = "Choose the voice language";
 $string['darkBtnOpt'] = "Quick access button for dark mode in top navigation bar";
-//privacy settings
+// privacy settings
 $string['privacy:metadata:theme_celene4boost_darkbtn'] = 'Activation of the accessibility option "dark mode" by the user';
 $string['privacy:metadata:theme_celene4boost_parkinson'] = 'Activation of the accessibility option "elements enhancements" by the user';
 $string['privacy:metadata:theme_celene4boost_letter'] = 'Activation of the accessibility option "letter spacing" by the user';

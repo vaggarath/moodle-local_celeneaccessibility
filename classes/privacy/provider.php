@@ -1,15 +1,12 @@
 <?php
-
 namespace local_celeneaccessibility\privacy;
 
 use core_privacy\local\metadata\collection;
 
 class provider implements
-    \core_privacy\local\metadata\provider
-{
+    \core_privacy\local\metadata\provider {
 
-    public static function get_metadata(collection $collection): collection
-    {
+    public static function get_metadata(collection $collection): collection {
 
         $collection->add_user_preference('theme_celene4boost_darkbtn', 'privacy:metadata:preference:theme_celene4boost_darkbtn');
         $collection->add_user_preference('theme_celene4boost_parkinson', 'privacy:metadata:preference:theme_celene4boost_parkinson');

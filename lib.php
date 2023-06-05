@@ -25,6 +25,7 @@
  /**
   * Show the link in the my profile page
   * @param \stdclass tree
+  * @param \stdclass tree
   */
 function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree) {
     if (!isloggedin() || isguestuser()) {
@@ -50,6 +51,10 @@ function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofi
     $tree->add_node($localnode);
 }
 
+/**
+ * Function to add JS forcefully on bottom page.
+ * Beware it's going to be on each page
+ */
 function local_celeneaccessibility_before_footer() {
     global $PAGE;
 

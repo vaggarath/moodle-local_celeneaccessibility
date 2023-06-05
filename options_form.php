@@ -27,10 +27,9 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/formslib.php');
 
 class local_celeneaccessibility_options_form extends moodleform {
-    // using constructor parameters for testing purpose
+
     protected $_customdata;
 
-    // define form
     public function definition() {
         global $OUTPUT;
         $checkdark = $this->_customdata['options']['dark'] === "dark" ? 1 : 0;
@@ -50,7 +49,7 @@ class local_celeneaccessibility_options_form extends moodleform {
         $displaytts = get_config('local_celeneaccessibility', 'showtts'); // settings pour montrer/cacher l'option TTS
         $displayguiding = get_config('local_celeneaccessibility', 'showguiding');
 
-        $mform = $this->_form; // underscore à ne pas oublier !!
+        $mform = $this->_form;
 
         if (get_config('local_celeneaccessibility', 'showguiding')) {
             $mform->addElement('html', "<div class='card mx-auto mb-2 p-3'>" . get_config('local_celeneaccessibility', 'adminMessage') . "</div>");
@@ -79,7 +78,6 @@ class local_celeneaccessibility_options_form extends moodleform {
         $bluechoice = $mform->addElement('advcheckbox', 'bluechoice', get_string('bluelight', 'local_celeneaccessibility'), '');
         $mform->setDefault('bluechoice', $bluelight);
 
-        // agrandir le texte
         $fontsizing = array(
             '0' => "normal",
             '1' => "grand",
@@ -96,25 +94,20 @@ class local_celeneaccessibility_options_form extends moodleform {
             'arial' => 'Arial',
             'verdana' => 'Verdana',
             'courier' => 'Courier',
-            // 'andika' =>'Andika' // Ne fonctionne pas quel que soit le format choisit. Retiré des choix pour le moment
-            // 'helvetica'=>'Helvetica Neue' //je suis tombé sur un article disant qu'elle n'est pas websafe. Je vais chercher avant de la proposer
         );
         $fontchoice = $mform->addElement('select', 'fontchoice', get_string('font', 'local_celeneaccessibility'), $fontchoice);
         $fontchoice->setSelected($font);
 
-        // letter spacing option
         $letterspacing = array(
             '0' => "normal",
             '1' => "large",
             '2' => "plus large",
         );
 
-        // select for letter spacing
         $selectletter = $mform->addElement('select', 'letterspacing', get_string('letter-spacing', 'local_celeneaccessibility'), $letterspacing);
         $mform->addHelpButton('letterspacing', 'letterspacing', 'local_celeneaccessibility');
         $selectletter->setSelected($letter);
 
-        //word spacing now
         $wordspacing = array(
             'normal',
             'large',
@@ -124,7 +117,6 @@ class local_celeneaccessibility_options_form extends moodleform {
         $mform->addHelpButton('wordspacing', 'letterspacing', 'local_celeneaccessibility');
         $selectWord->setSelected($word);
 
-        //line spacing (height)
         $lineSpacing = array(
             'normal',
             'large',
@@ -144,11 +136,6 @@ class local_celeneaccessibility_options_form extends moodleform {
         $mform->addHelpButton('texttransform', 'letterspacing', 'local_celeneaccessibility');
         $texttransformer->setSelected($texttransform);
 
-
-
-        /*********** */
-        //désaturer les images
-        //agrandir le texte
         $lowsaturizing = array(
             '0' => "normal",
             '1' => "désaturation moyenne",
@@ -204,7 +191,7 @@ class local_celeneaccessibility_options_form extends moodleform {
             $defaultlanguage = null;
             if (get_user_preferences('theme_celene4boost_language')) {
                 $defaultlanguage = get_user_preferences('theme_celene4boost_language');
-            } elseif (get_config('local_celeneaccessibility', 'chooselanguage')) {
+            } else if (get_config('local_celeneaccessibility', 'chooselanguage')) {
                 $defaultlanguage = get_config('local_celeneaccessibility', 'chooselanguage');
             } else {
                 $defaultlanguage = "french";

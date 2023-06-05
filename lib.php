@@ -22,7 +22,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree, $user, $iscurrentuser, $course){
+function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree, $user, $iscurrentuser, $course) {
     if (!isloggedin() || isguestuser()) {
         return '';
     }
@@ -46,7 +46,7 @@ function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofi
     $tree->add_node($localnode);
 }
 
-function local_celeneaccessibility_before_footer(){
+function local_celeneaccessibility_before_footer() {
     global $PAGE;
 
     $language = \theme_celene4boost\extraclasses::getLanguage();

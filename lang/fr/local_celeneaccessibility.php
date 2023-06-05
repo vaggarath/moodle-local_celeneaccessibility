@@ -20,8 +20,8 @@
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
- * @package    local_inwitools
- * @copyright  2021 bcourtin@univ-tours.fr
+ * @package    local_celeneaccessibility
+ * @copyright  2023 jchambon@univ-tours.fr
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -76,17 +76,17 @@ $string['adminmessage'] = "Message d'information à l'attention des utilisateurs
 $string['countempty'] = "Nombre d'options vides en base";
 $string['cleandb'] = "Nettoyage DB";
 $string['bluelight'] = "Filtre pour diminuer l'effet de lumière bleue";
-// settings choose language for tts
+// Settings choose language for tts.
 $string['chooselanguage'] = "Choisissez une langue de lecture";
 $string['defaultlanguage'] = "La langue par défaut est le français";
 $string['chooselanguagedescription'] = "Changer la langue de lecture en mode TTS";
 $string['frenchlanguage'] = "Français";
 $string['englishlanguage'] = "Anglais";
-// completion marker
+// Completion marker.
 $string['ttsinformation'] = 'L\'option de lecture par voix de synthèse est activée sur le clic droit de la souris, sur le texte désiré';
 $string['languagechooser'] = "Choisissez la voix de la langue";
 $string['darkBtnOpt'] = "Bouton d'accès rapide à l'option dark mode dans la barre de navigation";
-// privacy settings
+// Privacy settings.
 $string['privacy:metadata:theme_celene4boost_darkbtn'] = 'Activation de l\'option "dark mode" par l\'utilisateur';
 $string['privacy:metadata:theme_celene4boost_parkinson'] = 'Activation de l\'option "elements enhancements" par l\'utilisateur';
 $string['privacy:metadata:theme_celene4boost_letter'] = 'Activation de l\'option "letter spacing" par l\'utilisateur';

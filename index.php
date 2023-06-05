@@ -40,8 +40,8 @@ $PAGE->set_title($SITE->fullname);
 
 $PAGE->set_heading(get_string('menuname', 'local_celeneaccessibility'));
 
-// check if settings exist or not. If not then tts & guiging shouldn't exists
-$displaytts = get_config('local_celeneaccessibility', 'showtts'); // settings pour montrer/cacher l'option TTS
+// Check if settings exist or not. If not then tts & guiging shouldn't exists.
+$displaytts = get_config('local_celeneaccessibility', 'showtts'); // Settings pour montrer/cacher l'option TTS.
 $displayguiding = get_config('local_celeneaccessibility', 'showguiding');
 
 $customdata = array('options' => array(

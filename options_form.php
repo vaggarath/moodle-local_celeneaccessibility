@@ -26,10 +26,20 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
 
+/**
+ * A class extending moodle's one for forms to generate the form which proposes
+ * the different accessibility options
+ */
 class local_celeneaccessibility_options_form extends moodleform {
 
+    /**
+     * @param array from index.php which gives existing values for user's preferences
+     */
     protected $_customdata;
 
+    /**
+     * definition
+     */
     public function definition() {
         global $OUTPUT;
         $checkdark = $this->_customdata['options']['dark'] === "dark" ? 1 : 0;
@@ -46,22 +56,20 @@ class local_celeneaccessibility_options_form extends moodleform {
         $bluelight = $this->_customdata['options']['bluelight'];
         $choosedlanguage = $this->_customdata['options']['choosedlanguage'];
         $checkdarkbtn = $this->_customdata['options']['darkbtn'] === "darkbtn" ? 1 : 0;
-        $displaytts = get_config('local_celeneaccessibility', 'showtts'); // settings pour montrer/cacher l'option TTS
+        $displaytts = get_config('local_celeneaccessibility', 'showtts'); // Settings pour montrer/cacher l'option TTS.
         $displayguiding = get_config('local_celeneaccessibility', 'showguiding');
 
         $mform = $this->_form;
 
         if (get_config('local_celeneaccessibility', 'showguiding')) {
-            $mform->addElement('html', "<div class='card mx-auto mb-2 p-3'>" . get_config('local_celeneaccessibility', 'adminMessage') . "</div>");
+            $mform->addElement('html', "<div class='card mx-auto mb-2 p-3'>"
+            . get_config('local_celeneaccessibility', 'adminMessage') . "</div>");
         }
-
 
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Confort visuel</h2>');
 
-
-
-        //dark mode
+        //Dark mode.
         $mform->addElement('html', '<div class="w-100 d-flex justify-content-around">');
         $mform->addElement('html', '<div class="w-50">');
         $mform->addElement('advcheckbox', 'dark', get_string('defaultdark', 'local_celeneaccessibility'), '');
@@ -84,7 +92,9 @@ class local_celeneaccessibility_options_form extends moodleform {
             '2' => "plus grand",
             '3' => "beaucoup plus grand",
         );
-        $selectline = $mform->addElement('select', 'fontsizing', get_string('fontsizing', 'local_celeneaccessibility'), $fontsizing);
+        $selectline = $mform->addElement('select', 'fontsizing',
+        get_string('fontsizing', 'local_celeneaccessibility'), $fontsizing);
+
         $mform->addHelpButton('fontsizing', 'letterspacing', 'local_celeneaccessibility');
         $selectline->setSelected($fontsize);
 
@@ -104,7 +114,9 @@ class local_celeneaccessibility_options_form extends moodleform {
             '2' => "plus large",
         );
 
-        $selectletter = $mform->addElement('select', 'letterspacing', get_string('letter-spacing', 'local_celeneaccessibility'), $letterspacing);
+        $selectletter = $mform->addElement('select', 'letterspacing',
+        get_string('letter-spacing', 'local_celeneaccessibility'), $letterspacing);
+
         $mform->addHelpButton('letterspacing', 'letterspacing', 'local_celeneaccessibility');
         $selectletter->setSelected($letter);
 
@@ -113,16 +125,20 @@ class local_celeneaccessibility_options_form extends moodleform {
             'large',
             'plus large'
         );
-        $selectWord = $mform->addElement('select', 'wordspacing', get_string('word-spacing', 'local_celeneaccessibility'), $wordspacing);
-        $mform->addHelpButton('wordspacing', 'letterspacing', 'local_celeneaccessibility');
-        $selectWord->setSelected($word);
+        $selectword = $mform->addElement('select', 'wordspacing',
+        get_string('word-spacing', 'local_celeneaccessibility'), $wordspacing);
 
-        $lineSpacing = array(
+        $mform->addHelpButton('wordspacing', 'letterspacing', 'local_celeneaccessibility');
+        $selectword->setSelected($word);
+
+        $linespacing = array(
             'normal',
             'large',
             'plus large'
         );
-        $selectline = $mform->addElement('select', 'linespacing', get_string('line-spacing', 'local_celeneaccessibility'), $lineSpacing);
+        $selectline = $mform->addElement('select', 'linespacing',
+        get_string('line-spacing', 'local_celeneaccessibility'), $linespacing);
+
         $mform->addHelpButton('linespacing', 'letterspacing', 'local_celeneaccessibility');
         $selectline->setSelected($line);
 
@@ -132,7 +148,9 @@ class local_celeneaccessibility_options_form extends moodleform {
             '2' => 'Minuscule',
             '3' => 'Première lettre toujours en majuscule'
         );
-        $texttransformer = $mform->addElement('select', 'texttransform', get_string('casse', 'local_celeneaccessibility'), $texttransformvalue);
+        $texttransformer = $mform->addElement('select', 'texttransform',
+        get_string('casse', 'local_celeneaccessibility'), $texttransformvalue);
+
         $mform->addHelpButton('texttransform', 'letterspacing', 'local_celeneaccessibility');
         $texttransformer->setSelected($texttransform);
 
@@ -143,7 +161,9 @@ class local_celeneaccessibility_options_form extends moodleform {
             '3' => "Couleurs vives",
             '4' => "Couleurs très vives",
         );
-        $selectline = $mform->addElement('select', 'lowsaturizing', get_string('lowsaturizing', 'local_celeneaccessibility'), $lowsaturizing);
+        $selectline = $mform->addElement('select', 'lowsaturizing',
+        get_string('lowsaturizing', 'local_celeneaccessibility'), $lowsaturizing);
+
         $mform->addHelpButton('lowsaturizing', 'letterspacing', 'local_celeneaccessibility');
         $selectline->setSelected($lowsat);
 
@@ -159,7 +179,7 @@ class local_celeneaccessibility_options_form extends moodleform {
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Confort moteur</h2>');
 
-        //gestes imprécis
+        // Gestes imprécis.
 
         $mform->addElement('advcheckbox', 'parkinson', get_string('defaultparkinson', 'local_celeneaccessibility'), '');
         $mform->addHelpButton('parkinson', 'letterspacing', 'local_celeneaccessibility');
@@ -171,8 +191,6 @@ class local_celeneaccessibility_options_form extends moodleform {
         $mform->addElement('html', '<div class="card p-3 mb-3">');
         $mform->addElement('html', '<h2 class="h3">Autre</h2>');
 
-
-
         if ($displayguiding) {
             $mform->addElement('advcheckbox', 'guiding', get_string('defaultguiding', 'local_celeneaccessibility'), '');
             $mform->setDefault('guiding', $checkguiding);
@@ -180,14 +198,13 @@ class local_celeneaccessibility_options_form extends moodleform {
             $mform->setType('guiding', PARAM_BOOL);
         }
 
-
         if ($displaytts) {
-            //display tts option
+            // Display tts option!
             $mform->addElement('advcheckbox', 'tts', get_string('defaulttts', 'local_celeneaccessibility'), '');
             $mform->addHelpButton('tts', 'helptts', 'local_celeneaccessibility');
             $mform->setDefault('tts', $checktts);
             $mform->setType('tts', PARAM_BOOL);
-            //permit choosing specific language
+            // Allow choosing specific language.
             $defaultlanguage = null;
             if (get_user_preferences('theme_celene4boost_language')) {
                 $defaultlanguage = get_user_preferences('theme_celene4boost_language');
@@ -201,14 +218,17 @@ class local_celeneaccessibility_options_form extends moodleform {
                 "French" => get_string('frenchlanguage', 'local_celeneaccessibility'),
                 'English' => get_string('englishlanguage', 'local_celeneaccessibility')
             );
-            $selectline = $mform->addElement('select', 'languagechooser', get_string('languagechooser', 'local_celeneaccessibility'), $languages);
+            $selectline = $mform->addElement('select', 'languagechooser',
+            get_string('languagechooser', 'local_celeneaccessibility'), $languages);
+
             $selectline->setSelected($defaultlanguage);
         }
 
         $mform->addElement('html', '<div class="card bg-secondary w-50 mx-auto p-2 d-flex flex-row" id="tts-option-card">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle mr-2" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545
+            0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
         </svg>
         <strong>' . get_string('ttsinformation', 'local_celeneaccessibility') . '</strong></div><br />');
 

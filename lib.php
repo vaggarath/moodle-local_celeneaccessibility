@@ -22,7 +22,11 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree, $user, $iscurrentuser, $course) {
+ /**
+  * Show the link in the my profile page
+  * @param \stdclass tree
+  */
+function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree) {
     if (!isloggedin() || isguestuser()) {
         return '';
     }

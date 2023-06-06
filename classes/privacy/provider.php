@@ -35,14 +35,13 @@ use core_privacy\local\metadata\collection;
 class provider implements
     \core_privacy\local\metadata\provider {
 
-    /**
-     * get_metadata
-     *
-     * @param class collection
-     * @param  mixed $collection
-     * @return collection
-     */
-    public static function get_metadata(collection $collection): collection {
+        /**
+         * Return the fields which contain personal data.
+         *
+         * @param collection $collection a reference to the collection to use to store the metadata.
+         * @return collection the updated collection of metadata items.
+         */
+        public static function get_metadata(collection $collection): collection {
 
         $collection->add_user_preference('theme_celene4boost_darkbtn',
                                         'privacy:metadata:preference:theme_celene4boost_darkbtn');

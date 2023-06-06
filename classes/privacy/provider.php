@@ -38,6 +38,7 @@ class provider implements
     /**
      * get_metadata
      *
+     * @param class collection
      * @param  mixed $collection
      * @return collection
      */

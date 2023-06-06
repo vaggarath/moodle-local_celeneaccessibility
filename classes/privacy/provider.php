@@ -15,9 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines {@link \local_celeneaccessibility\privacy\provider} class.
+ * Provider class.
  *
  * @package     local_celeneaccessibility
+ * @author      2023 Vaggarath <jchambon@univ-tours.fr>
  * @category    privacy
  * @copyright   2023 Vaggarath <jchambon@univ-tours.fr>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

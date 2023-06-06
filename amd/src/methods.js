@@ -1,13 +1,12 @@
 import Chart from 'https://cdn.jsdelivr.net/npm/chart.js';
 
-const information = (target, data) =>{
-    const informations = Object.values(data).filter((obj)=>obj.name === target);
+const information = (target, data) => {
+    const informations = Object.values(data).filter((obj) => obj.name === target);
     return informations;
 };
 
-const generateChart = (type, data) =>{
+const generateChart = (type, data) => {
     document.getElementById('chart').remove();
-    // main-access-stats
     const ctx = document.createElement('canvas');
     ctx.id = "chart";
     document.getElementById('main-access-stats').append(ctx);
@@ -15,7 +14,7 @@ const generateChart = (type, data) =>{
     new Chart(ctx, {
         type: type,
         data: {
-          labels: [
+            labels: [
                 'dark mode',
                 'Focus help',
                 'letter spacing',
@@ -26,9 +25,9 @@ const generateChart = (type, data) =>{
                 'font size',
                 'image saturation'
             ],
-          datasets: [{
-            label: 'Nb of users',
-            data: [information('theme_celene4boost_mode', data).length,
+            datasets: [{
+                label: 'Nb of users',
+                data: [information('theme_celene4boost_mode', data).length,
                 information('theme_celene4boost_parkinson', data).length,
                 information('theme_celene4boost_letter', data).length,
                 information('theme_celene4boost_word', data).length,
@@ -37,18 +36,18 @@ const generateChart = (type, data) =>{
                 information('theme_celene4boost_blue', data).length,
                 information('theme_celene4boost_fontsize', data).length,
                 information('theme_celene4boost_lowsat', data).length
-            ],
-            borderWidth: 1
-          }]
+                ],
+                borderWidth: 1
+            }]
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
-          }
         }
-      });
+    });
 };
 
-export default {information, generateChart};
+export default { information, generateChart };

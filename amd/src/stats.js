@@ -1,12 +1,12 @@
-import {information, generateChart} from './methods';
+import { information, generateChart } from './methods';
 import Chart from 'https://cdn.jsdelivr.net/npm/chart.js';
 
-export const init = (nbusers, data) =>{
+export const init = (nbusers, data) => {
     const selector = document.getElementById('access-stats-selector');
 
     let type = selector.value;
 
-    selector.addEventListener('change', (e)=>{
+    selector.addEventListener('change', (e) => {
         e.preventDefault();
         generateChart(e.target.value, data);
     });
@@ -14,7 +14,7 @@ export const init = (nbusers, data) =>{
     new Chart(document.getElementById('chart'), {
         type: type,
         data: {
-          labels: [
+            labels: [
                 'dark mode',
                 'Focus help',
                 'letter spacing',
@@ -25,9 +25,9 @@ export const init = (nbusers, data) =>{
                 'font size',
                 'image saturation'
             ],
-          datasets: [{
-            label: 'Nb of users',
-            data: [information('theme_celene4boost_mode', data).length,
+            datasets: [{
+                label: 'Nb of users',
+                data: [information('theme_celene4boost_mode', data).length,
                 information('theme_celene4boost_parkinson', data).length,
                 information('theme_celene4boost_letter', data).length,
                 information('theme_celene4boost_word', data).length,
@@ -36,16 +36,16 @@ export const init = (nbusers, data) =>{
                 information('theme_celene4boost_blue', data).length,
                 information('theme_celene4boost_fontsize', data).length,
                 information('theme_celene4boost_lowsat', data).length
-            ],
-            borderWidth: 1
-          }]
+                ],
+                borderWidth: 1
+            }]
         },
         options: {
-          scales: {
-            y: {
-              beginAtZero: true
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
-          }
         }
-      });
+    });
 };

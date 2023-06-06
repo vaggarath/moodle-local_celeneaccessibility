@@ -27,12 +27,12 @@ namespace local_celeneaccessibility\privacy;
 
 use core_privacy\local\metadata\collection;
 
+
 /**
- * class to provide user's used informations
+ * provider
  */
 class provider implements
     \core_privacy\local\metadata\provider {
-
 
     /**
      * get_metadata

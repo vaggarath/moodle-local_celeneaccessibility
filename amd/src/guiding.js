@@ -1,10 +1,4 @@
-/**
- * Celene 4 boost is a clean and customizable theme.
- *
-
- */
-
-define(['jquery', 'core/log'], function (jQuery, log) {
+define(['jquery', 'core/log'], function(jQuery, log) {
 
   "use strict";
 
@@ -23,7 +17,7 @@ define(['jquery', 'core/log'], function (jQuery, log) {
       if (document.getElementById('readingLine') && document.getElementById('readingLine').classList.contains('d-none')) {
         document.getElementById('readingLine').classList.remove('d-none');
       }
-      //if esc key was not pressed in combination with ctrl or alt or shift
+      // If esc key was not pressed in combination with ctrl or alt or shift;
       const isNotCombinedKey = !(event.ctrlKey || event.altKey || event.shiftKey);
       if (isNotCombinedKey
         && document.getElementById("readingLine")
@@ -56,7 +50,6 @@ define(['jquery', 'core/log'], function (jQuery, log) {
         let original_y = 0;
         let original_mouse_y = 0;
 
-        /**grunt hack */
         /**
          *
          * @param {*} val
@@ -67,25 +60,13 @@ define(['jquery', 'core/log'], function (jQuery, log) {
           original_mouse_y = val.pageY;
         };
 
-        /*jshint -W089 */
-        for (let i = 0; i < resizers.length; i++) {
-          const currentResizer = resizers[i];
-
-          currentResizer.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            newVal(e);
-            // Original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
-            // Original_y = element.getBoundingClientRect().top;
-            // Original_mouse_y = e.pageY;
-            window.addEventListener('mousemove', resize);
-            window.addEventListener('mouseup', stopResize);
-          });
-
           /**
            *
            * @param {*} e
+           * @param {*} currentResizer
            */
-          const resize = (e) => {
+           const resize = (e, currentResizer) => {
+            newVal(e);
             if (currentResizer.classList.contains('bottom-right')) {
               const height = original_height + (e.pageY - original_mouse_y);
               if (height > minimum_size) {
@@ -120,8 +101,17 @@ define(['jquery', 'core/log'], function (jQuery, log) {
           const stopResize = () => {
             window.removeEventListener('mousemove', resize);
           };
+
+        for (let i = 0; i < resizers.length; i++) {
+          const currentResizer = resizers[i];
+
+          currentResizer.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            newVal(e);
+            window.addEventListener('mousemove', resize(e, currentResizer));
+            window.addEventListener('mouseup', stopResize);
+          });
         }
-        /*jshint +W089 */
       };
       makeResizableDiv('#readingLine');
     }
@@ -148,7 +138,6 @@ define(['jquery', 'core/log'], function (jQuery, log) {
       e = e || window.event;
       e.preventDefault();
       // Get the mouse cursor position at startup:
-      //   Pos3 = e.clientX;
       pos4 = e.clientY;
       document.onmouseup = closeDragElement;
       // Call a function whenever the cursor moves:

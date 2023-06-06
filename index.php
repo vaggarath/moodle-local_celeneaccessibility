@@ -221,6 +221,12 @@ if ($messageform->is_cancelled()) {
 
 echo $OUTPUT->header();
 
+$stats_url = new moodle_url('/local/celeneaccessibility/statistics.php');
+
+if( is_siteadmin() ) :
+    echo "<a href='".$stats_url."'>".get_string('seestats', 'local_celeneaccessibility')."</a>";
+endif;
+
 if (isloggedin() && !isguestuser()) {
     $messageform->display();
 }

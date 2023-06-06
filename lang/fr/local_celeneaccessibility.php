@@ -97,3 +97,6 @@ $string['privacy:metadata:theme_celene4boost_blue'] = 'Activation de l\'option "
 $string['privacy:metadata:theme_celene4boost_fontsize'] = 'Activation de l\'option "font size" par l\'utilisateur';
 $string['privacy:metadata:theme_celene4boost_lowsat'] = 'Activation de l\'option "images color saturation/desaturation" par l\'utilisateur';
 $string['privacy:metadata:theme_celene4boost_texttransform'] = 'Activation de l\'option "text transformation" par l\'utilisateur';
+$string['statsname'] = "Satistiques";
+$string['notallowed'] = "Vous n'êtes pas authorisés à voir ce contenu";
+$string['seestats'] = "Voir les statistiques d'utilisation";

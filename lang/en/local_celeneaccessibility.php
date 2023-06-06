@@ -90,3 +90,6 @@ $string['privacy:metadata:theme_celene4boost_blue'] = 'Activation of the accessi
 $string['privacy:metadata:theme_celene4boost_fontsize'] = 'Activation of the accessibility option "font size" by the user';
 $string['privacy:metadata:theme_celene4boost_lowsat'] = 'Activation of the accessibility option "images color saturation/desaturation" by the user';
 $string['privacy:metadata:theme_celene4boost_texttransform'] = 'Activation of the accessibility option "text transformation" by the user';
+$string['statsname'] = "Statistics";
+$string['notallowed'] = "You're not allowed to see this content";
+$string['seestats'] = "See the usage statistics";

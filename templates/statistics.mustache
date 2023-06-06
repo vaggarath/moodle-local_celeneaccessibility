@@ -1,0 +1,18 @@
+{{^isadmin}}
+    <h2 class="text-center">Vous n'êtes pas autorisés à voir cette page</h2>
+{{/isadmin}}
+{{#isadmin}}
+<select id="access-stats-selector" class="form-control">
+    <option value="bar" selected="selected">Over all<option>
+    <option value="pie">Pie chart</option>
+<select>
+
+<div id="main-access-stats">
+    <canvas id="chart"></canvas>
+</div>
+{{#js}}
+require(['local_celeneaccessibility/stats'], function(module) {
+    module.init('{{nbactiveusers}}', {{{data}}});
+});
+{{/js}}
+{{/isadmin}}

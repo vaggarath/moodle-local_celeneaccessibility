@@ -22,7 +22,7 @@ export const init = (language) => {
             }
         }
 
-        // créer le context menu
+        // Créer le context menu.
         /**
          *
          * @param {*} event

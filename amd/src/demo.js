@@ -33,13 +33,17 @@ export const demo = () => {
         if (htmlElement.classList.contains('dark')) {
             htmlElement.classList.remove('dark');
             for (let i = 0; i < navbar.length; i++) {
-                if (navbar[i] && navbar[i].classList.contains('bg-dark')) { navbar[i].classList.remove('bg-dark'); }
+                if (navbar[i] && navbar[i].classList.contains('bg-dark')) {
+                    navbar[i].classList.remove('bg-dark');
+                }
             }
         } else {
             htmlElement.classList.add('dark');
             for (let i = 0; i < navbar.length; i++) {
                 if (navbar[i] && !navbar[i].classList.contains('bg-dark')) {
-                    if (navbar[i].classList.contains('bg-white')) { navbar[i].classList.remove('bg-white'); }
+                    if (navbar[i].classList.contains('bg-white')) {
+                        navbar[i].classList.remove('bg-white');
+                    }
                     navbar[i].classList.add('bg-dark');
                 }
             }
@@ -101,16 +105,16 @@ export const demo = () => {
     const textTransformCheck = document.getElementById('id_texttransform');
     textTransformCheck.addEventListener('change', (e) => {
         const checkValues = {
-            0: 'normal',
-            1: 'majuscule',
-            2: 'minuscule',
-            3: 'capitale'
+            '0': 'normal',
+            '1': 'majuscule',
+            '2': 'minuscule',
+            '3': 'capitale'
         };
         const textValue = checkValues[parseInt(e.target.value)];
         console.log(textValue);
         for (let i = 0; i <= 3; i++) {
-            if (document.body.classList.contains(checkValues[i])) {
-                document.body.classList.remove(checkValues[i]);
+            if (document.body.classList.contains(checkValues[i.toString()])) {
+                document.body.classList.remove(checkValues[i.toString()]);
             }
         }
         if (!body.classList.contains(textValue)) {

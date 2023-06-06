@@ -34,8 +34,10 @@ class provider implements
     \core_privacy\local\metadata\provider {
 
     /**
+     * Privacy api
+     *
      * @param class $collection
-     * where we use the user id
+     * @return collection
      */
     public static function get_metadata(collection $collection): collection {
 

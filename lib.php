@@ -22,12 +22,12 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
- /**
-  * Show the link in the my profile page
-  * @param \stdclass tree
-  * @param \stdclass tree
-  */
-function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree) {
+/**
+ * Function to show the link to the options' page
+ * @param \stdclass
+ */
+function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofile\tree $tree)
+{
     if (!isloggedin() || isguestuser()) {
         return '';
     }
@@ -55,7 +55,8 @@ function local_celeneaccessibility_myprofile_navigation(core_user\output\myprofi
  * Function to add JS forcefully on bottom page.
  * Beware it's going to be on each page
  */
-function local_celeneaccessibility_before_footer() {
+function local_celeneaccessibility_before_footer()
+{
     global $PAGE;
 
     $language = \theme_celene4boost\extraclasses::getLanguage();

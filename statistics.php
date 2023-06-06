@@ -54,11 +54,11 @@ $data = json_encode($result);
 
 $templatecontext = [
     "isadmin" => is_siteadmin(),
-    "nbactiveusers" =>$nbusers->result,
+    "nbactiveusers" => $nbusers->result,
     "data" => $data,
     "nbusr" => get_string('nbusrs', 'local_celeneaccessibility', $nbusers->result),
 ];
 
 echo $OUTPUT->header();
-        echo $OUTPUT->render_from_template("local_celeneaccessibility/statistics", $templatecontext);
+echo $OUTPUT->render_from_template("local_celeneaccessibility/statistics", $templatecontext);
 echo $OUTPUT->footer();

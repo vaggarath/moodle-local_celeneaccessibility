@@ -31,8 +31,11 @@ require_once($CFG->libdir . '/formslib.php');
  */
 class local_celeneaccessibility_options_form extends moodleform {
 
+
     /**
-     * @param array from index.php which gives existing values for user's preferences
+     * _customdata
+     *
+     * @var mixed
      */
     protected $_customdata;
 

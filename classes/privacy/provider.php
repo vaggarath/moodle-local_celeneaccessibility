@@ -33,10 +33,11 @@ use core_privacy\local\metadata\collection;
 class provider implements
     \core_privacy\local\metadata\provider {
 
+
     /**
-     * Privacy api
+     * get_metadata
      *
-     * @param class $collection
+     * @param  mixed $collection
      * @return collection
      */
     public static function get_metadata(collection $collection): collection {

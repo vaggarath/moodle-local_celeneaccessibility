@@ -31,36 +31,148 @@ The plugin is not really complicated in itself, the code is quite forward and re
 10. Clic and selection improvment for motor impaired user
 11. Reading guide line (activation on ESC key)
 12. Text To Speech option (on right click)
+13. Statistic page for administrators to have visual stats about users usage
 
 ## Theme necessities to use the plugin
 ```Important : Tested only with Moodle 4.0.4 to 4.1.1```
 #### Pre-requisites
- - Ideally your theme should to be a child of the Boost theme.
- - The last moodle recommanded version of grunt needs to be installed.
+ - Theme Boost (or boost child theme)
 
-#### List of the files
-- **amd/src/guiding.js & amd/src/tts.js**  are both to enable the reading helper and the TTS option
-- **layout/drawers.php** This is where the theme gets the user options from the database and sets the body classes
-- **templates/drawers.mustache & head.mustache** 1st one is to dispatch body's classes, call the JS script and enable the reading helper
+### How to install
+#### The way the plugin works
 
-## What to do
-You need to include these file into your child theme (or, if you're brave enough inside your boost theme. But it's more than VERY HIGHLY recommanded to use a child theme based on Boost).
+When a user sets an option, it's recorded in the "user_preferences" table with the userid, the name of the option and the value of this one.
 
-Inside drawers.php don't forget to change the theme name !
+#### What's to be done on the theme side
 
-Inside your theme you need to run the grunt command in order to compile the js files and be able to exploit them :
-```shell
-x$: cd path/to/your/moodle/theme/yourtheme
-x$: grunt amd --force
-```
+On the boost theme or it's child it's easy and quick.
+On the layout/drawers.php it's needed to catch the user recorded choices to add classes to the body (or to the html element for the dark mode).
+Below is how i worked around it :
 
-### Potential error with Grunt
-It's very unlikely if you use the last version of grunt & eshint but you may get an "err_func_loop" error from grunt when compiling.
-This error is a false positive. You can either shut the error off by giving instruction to eshint or use the command --force
-```
-grunt amd --force
-```
+`//in layout/drawers.php`
 
+`$templatecontext = [`
+    `...`
+    `'bodyattributes' => $OUTPUT->body_attributes``(\theme_celene4boost\extraclasses::getExtraClasses()),`
+    `'theme_mode' => \theme_celene4boost\extraclasses::darkMode() ? 'dark' : null,`
+    `'bgnavbar' => \theme_celene4boost\extraclasses::darkMode() ? 'bg-dark' : null,`
+    `'language' => \theme_celene4boost\extraclasses::getLanguage(),`
+`];`
+
+// in a separate class file i went like this
+
+`class extraclasses{`
+    `protected $classes = array();`
+
+    public static function getExtraClasses() : array {
+
+        /**
+         * the follow values are all the options developped. You're free to remove the unwanted ones. You're even free to add more
+         */
+
+        $mode = get_user_preferences('theme_celene4boost_mode');
+        if ($mode == 'dark') {
+            $eclasses[] = 'bg-dark';
+        }
+
+        //letter spacing
+        $letterspacing = null;
+        if(get_user_preferences('theme_celene4boost_letter')){
+            $pref = get_user_preferences('theme_celene4boost_letter');
+            $letterspacing = "ls".$pref;
+            $mode .= ' '.$letterspacing;
+        }
+
+        $letter = get_user_preferences('theme_celene4boost_letter') && get_user_preferences('theme_celene4boost_letter') ? "ls".get_user_preferences('theme_celene4boost_letter') : '';
+        if($letter){
+            $eclasses[] =$letter;
+        }
+
+        $word = get_user_preferences('theme_celene4boost_word') && get_user_preferences('theme_celene4boost_word') ? "ws".get_user_preferences('theme_celene4boost_word') : '';
+        if($word){
+            $eclasses[] =$word;
+        }
+
+        $line = get_user_preferences('theme_celene4boost_line') && get_user_preferences('theme_celene4boost_line') ? "linesp".get_user_preferences('theme_celene4boost_line') : '';
+        if($line){
+            $eclasses[] =$line;
+        }
+
+        $dys = get_user_preferences('theme_celene4boost_dys') ? "dys" : '';
+        if($dys){
+            $eclasses[] =$dys;
+        }
+
+        $parkinson = get_user_preferences('theme_celene4boost_parkinson') ? "parkinson" : '';
+        if($parkinson){
+            $eclasses[] =$parkinson;
+        }
+
+        $tts = get_user_preferences('theme_celene4boost_tts') ? "tts" : '';
+        if($tts){
+            $eclasses[] =$tts;
+        }
+
+        $texttransform = get_user_preferences('theme_celene4boost_texttransform');
+        if($texttransform){
+            switch($texttransform){
+                case "0" :
+                    $eclasses[] ="";
+                    break;
+                case "1" :
+                    $eclasses[] ="majuscule";
+                    break;
+                case "2" :
+                    $eclasses[] ="minuscule";
+                    break;
+                case "3" :
+                    $eclasses[] ="capitale";
+                    break;
+                default: $eclasses[] = "";
+            }
+        }
+
+        $fontsize = get_user_preferences('theme_celene4boost_fontsize') && get_user_preferences('theme_celene4boost_fontsize') ? "fsa".get_user_preferences('theme_celene4boost_fontsize') : '';
+        if($fontsize){
+            $eclasses[] =$fontsize;
+        }
+
+
+        $font = get_user_preferences('theme_celene4boost_font') ? get_user_preferences('theme_celene4boost_font') : '';
+        if($font){
+            $eclasses[] =$font;
+        }
+
+        $guiding = get_user_preferences('theme_celene4boost_guiding') ? true : false;
+        if($guiding){
+            $eclasses[] = "guiding";
+        }
+
+        $lowsat = get_user_preferences('theme_celene4boost_lowsat') ? "lowsat".get_user_preferences('theme_celene4boost_lowsat') : '';
+        if($lowsat){
+            $eclasses[] =$lowsat;
+        }
+
+        $intensity = get_user_preferences('theme_celene4boost_blue') ? "blue-filter-strong" : '';
+        if($intensity){
+            $eclasses[] = $intensity;
+        }
+
+        $lastPlay = isset($eclasses) && !empty($eclasses) ? $eclasses : [];
+
+        return $lastPlay;
+    }
+
+    public static function darkMode() : bool {
+        $mode = get_user_preferences('theme_celene4boost_mode');
+        if ($mode == 'dark') {
+            return true;
+        }else{
+            return false;
+        }
+    }
+`}`
+`
 ### The dark mode
 It's the tricky part.
 The way we worked around it is quite specific to our way of proposing the option before this plugin came to development.
@@ -88,3 +200,4 @@ If it's the chosen option, the way to do is pretty straight forward : Go to admi
 ![preview](./accessibilite-1-up.png "preview 1")
 ![preview](./accessibilite-2-down.png "preview 2")
 ![preview](./accessibilite-3-TTS.png "preview 3")
+![preview](./stats.png "Admin stats")

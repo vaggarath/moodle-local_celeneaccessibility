@@ -1,18 +1,52 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_boost/footer
+
+    Page footer.
+
+    Example context (json):
+    {
+        "output": {
+            "page_doc_link": "Help and documentation",
+            "supportemail": "<a href=\"#\">Contact site support</a>",
+            "has_popover_links": true,
+            "services_support": "Services and support",
+            "login_info": "You are logged in as cute kitten",
+            "moodle_release": "90210"
+        }
+    }
+}}
 {{^isadmin}}
-    <h2 class="text-center">Vous n'êtes pas autorisés à voir cette page</h2>
+    <h2 class="text-center">{{#str}}notallowed, local_celeneaccessibility{{/str}}</h2>
 {{/isadmin}}
 {{#isadmin}}
-<select id="access-stats-selector" class="form-control">
-    <option value="bar" selected="selected">Over all<option>
-    <option value="pie">Pie chart</option>
-<select>
+    <select id="access-stats-selector" class="form-control">
+        <option value="bar" selected="selected">Over all<option>
+        <option value="pie">Pie chart</option>
+    <select>
 
-<div id="main-access-stats">
-    <canvas id="chart"></canvas>
-</div>
-{{#js}}
-require(['local_celeneaccessibility/stats'], function(module) {
-    module.init('{{nbactiveusers}}', {{{data}}});
-});
-{{/js}}
+    <div id="main-access-stats">
+        <canvas id="chart"></canvas>
+        <span>{{nbusr}}</span>
+    </div>
+    {{#js}}
+    require(['local_celeneaccessibility/stats'], function(module) {
+        module.init('{{nbactiveusers}}', {{{data}}});
+    });
+    {{/js}}
 {{/isadmin}}

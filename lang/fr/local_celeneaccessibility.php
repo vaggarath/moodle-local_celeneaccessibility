@@ -100,3 +100,4 @@ $string['privacy:metadata:theme_celene4boost_texttransform'] = 'Activation de l\
 $string['statsname'] = "Satistiques";
 $string['notallowed'] = "Vous n'êtes pas authorisés à voir ce contenu";
 $string['seestats'] = "Voir les statistiques d'utilisation";
+$string['nbusrs'] = 'Il y a {$a} utilisateurs actifs';

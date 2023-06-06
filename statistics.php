@@ -42,8 +42,6 @@ $PAGE->set_heading(get_string('statsname', 'local_celeneaccessibility'));
 
 $nbusers = $DB->get_record_sql('SELECT COUNT(*) as result FROM {user} WHERE suspended = 0;');
 
-// SELECT count(*) from mdl_user where mdl_user.suspended = 0
-
 $sql = "SELECT up.id, up.userid, up.name
 FROM {user_preferences} up
 LEFT JOIN {user} u ON up.userid = u.id
@@ -57,7 +55,8 @@ $data = json_encode($result);
 $templatecontext = [
     "isadmin" => is_siteadmin(),
     "nbactiveusers" =>$nbusers->result,
-    "data" => $data
+    "data" => $data,
+    "nbusr" => get_string('nbusrs', 'local_celeneaccessibility', $nbusers->result),
 ];
 
 echo $OUTPUT->header();

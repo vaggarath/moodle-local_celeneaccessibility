@@ -31,16 +31,11 @@ class extraclasses{
      */
     public static function getExtraClasses() : array {
 
-        /**
-         * the follow values are all the options developped. You're free to remove the unwanted ones. You're even free to add more
-         */
-
         $mode = get_user_preferences('theme_celene4boost_mode');
         if ($mode == 'dark') {
             $eclasses[] = 'bg-dark';
         }
 
-        //letter spacing
         $letterspacing = null;
         if(get_user_preferences('theme_celene4boost_letter')){
             $pref = get_user_preferences('theme_celene4boost_letter');

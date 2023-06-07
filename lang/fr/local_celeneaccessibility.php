@@ -101,4 +101,4 @@ $string['statsname'] = "Satistiques";
 $string['notallowed'] = "Vous n'êtes pas authorisés à voir ce contenu";
 $string['seestats'] = "Voir les statistiques d'utilisation";
 $string['nbusrs'] = 'Il y a {$a} utilisateurs actifs';
-$string['guidinghelp']="Appuyez sur Echap pour activer / désactiver la règle de lecture";
+$string['guidinghelp'] = "Appuyez sur Echap pour activer / désactiver la règle de lecture";

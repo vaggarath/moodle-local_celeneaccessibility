@@ -13,23 +13,30 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 namespace local_celeneaccessibility;
 
-defined('MOODLE_INTERNAL') || die();
-
-class extraclasses{
+/**
+ * extraclasses
+ *
+* @package      celeneaccessibility
+* @author       jchambon@univ-tours.fr
+ */
+class extraclasses
+{
     /**
-     * more simple you die : Each time we check if user has each preference
-     * and either return a value / boolean / ect. Couldn't be more straightforward
+     * classes
+     *
+     * @var array
      */
     protected $classes = array();
 
     /**
-     * getExtraClasses
+     * get_extra_classes
      *
      * @return array
      */
-    public static function getExtraClasses() : array {
+    public static function get_extra_classes(): array {
 
         $mode = get_user_preferences('theme_celene4boost_mode');
         if ($mode == 'dark') {
@@ -37,84 +44,97 @@ class extraclasses{
         }
 
         $letterspacing = null;
-        if(get_user_preferences('theme_celene4boost_letter')){
+        if (get_user_preferences('theme_celene4boost_letter')) {
             $pref = get_user_preferences('theme_celene4boost_letter');
-            $letterspacing = "celenels".$pref;
-            $mode .= ' '.$letterspacing;
+            $letterspacing = "celenels" . $pref;
+            $mode .= ' ' . $letterspacing;
         }
 
-        $letter = get_user_preferences('theme_celene4boost_letter') && get_user_preferences('theme_celene4boost_letter') ? "celenels".get_user_preferences('theme_celene4boost_letter') : '';
-        if($letter){
-            $eclasses[] =$letter;
+        $letter = get_user_preferences('theme_celene4boost_letter') && get_user_preferences('theme_celene4boost_letter')
+                ? "celenels" . get_user_preferences('theme_celene4boost_letter')
+                : '';
+        if ($letter) {
+            $eclasses[] = $letter;
         }
 
-        $word = get_user_preferences('theme_celene4boost_word') && get_user_preferences('theme_celene4boost_word') ? "celenews".get_user_preferences('theme_celene4boost_word') : '';
-        if($word){
-            $eclasses[] =$word;
+        $word = get_user_preferences('theme_celene4boost_word') && get_user_preferences('theme_celene4boost_word')
+                ? "celenews" . get_user_preferences('theme_celene4boost_word')
+                : '';
+        if ($word) {
+            $eclasses[] = $word;
         }
 
-        $line = get_user_preferences('theme_celene4boost_line') && get_user_preferences('theme_celene4boost_line') ? "celenelinesp".get_user_preferences('theme_celene4boost_line') : '';
-        if($line){
-            $eclasses[] =$line;
+        $line = get_user_preferences('theme_celene4boost_line') && get_user_preferences('theme_celene4boost_line')
+                ? "celenelinesp" . get_user_preferences('theme_celene4boost_line')
+                : '';
+        if ($line) {
+            $eclasses[] = $line;
         }
 
-        $dys = get_user_preferences('theme_celene4boost_dys') ? "celenedys" : '';
-        if($dys){
-            $eclasses[] =$dys;
+        $dys = get_user_preferences('theme_celene4boost_dys')
+                ? "celenedys"
+                : '';
+        if ($dys) {
+            $eclasses[] = $dys;
         }
 
         $parkinson = get_user_preferences('theme_celene4boost_parkinson') ? "celeneparkinson" : '';
-        if($parkinson){
-            $eclasses[] =$parkinson;
+        if ($parkinson) {
+            $eclasses[] = $parkinson;
         }
 
         $tts = get_user_preferences('theme_celene4boost_tts') ? "tts" : '';
-        if($tts){
-            $eclasses[] =$tts;
+        if ($tts) {
+            $eclasses[] = $tts;
         }
 
         $texttransform = get_user_preferences('theme_celene4boost_texttransform');
-        if($texttransform){
-            switch($texttransform){
-                case "0" :
-                    $eclasses[] ="";
+        if ($texttransform) {
+            switch ($texttransform) {
+                case "0":
+                    $eclasses[] = "";
                     break;
-                case "1" :
-                    $eclasses[] ="celenemajuscule";
+                case "1":
+                    $eclasses[] = "celenemajuscule";
                     break;
-                case "2" :
-                    $eclasses[] ="celeneminuscule";
+                case "2":
+                    $eclasses[] = "celeneminuscule";
                     break;
-                case "3" :
-                    $eclasses[] ="celenecapitale";
+                case "3":
+                    $eclasses[] = "celenecapitale";
                     break;
-                default: $eclasses[] = "";
+                default:
+                    $eclasses[] = "";
             }
         }
 
-        $fontsize = get_user_preferences('theme_celene4boost_fontsize') && get_user_preferences('theme_celene4boost_fontsize') ? "celenefsa".get_user_preferences('theme_celene4boost_fontsize') : '';
-        if($fontsize){
-            $eclasses[] =$fontsize;
+        $fontsize = get_user_preferences('theme_celene4boost_fontsize') && get_user_preferences('theme_celene4boost_fontsize')
+                    ? "celenefsa" . get_user_preferences('theme_celene4boost_fontsize')
+                    : '';
+        if ($fontsize) {
+            $eclasses[] = $fontsize;
         }
 
 
         $font = get_user_preferences('theme_celene4boost_font') ? get_user_preferences('theme_celene4boost_font') : '';
-        if($font){
-            $eclasses[] =$font;
+        if ($font) {
+            $eclasses[] = $font;
         }
 
         $guiding = get_user_preferences('theme_celene4boost_guiding') ? true : false;
-        if($guiding){
+        if ($guiding) {
             $eclasses[] = "celeneguiding";
         }
 
-        $lowsat = get_user_preferences('theme_celene4boost_lowsat') ? "celenelowsat".get_user_preferences('theme_celene4boost_lowsat') : '';
-        if($lowsat){
-            $eclasses[] =$lowsat;
+        $lowsat = get_user_preferences('theme_celene4boost_lowsat')
+                    ? "celenelowsat" . get_user_preferences('theme_celene4boost_lowsat')
+                    : '';
+        if ($lowsat) {
+            $eclasses[] = $lowsat;
         }
 
         $intensity = get_user_preferences('theme_celene4boost_blue') ? "celeneblue-filter-strong" : '';
-        if($intensity){
+        if ($intensity) {
             $eclasses[] = $intensity;
         }
 
@@ -128,11 +148,11 @@ class extraclasses{
      *
      * @return bool
      */
-    public static function darkMode() : bool {
+    public static function dark_mode(): bool {
         $mode = get_user_preferences('theme_celene4boost_mode');
         if ($mode == 'dark') {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -142,7 +162,7 @@ class extraclasses{
      *
      * @return bool
      */
-    public static function helper() : bool {
+    public static function helper(): bool {
         return get_user_preferences('theme_celene4boost_guiding') ? true : false;
     }
 
@@ -151,12 +171,12 @@ class extraclasses{
      *
      * @return string
      */
-    public static function getLanguage() : string{
-        if(get_user_preferences('theme_celene4boost_language')){
+    public static function get_language(): string {
+        if (get_user_preferences('theme_celene4boost_language')) {
             return strtolower(get_user_preferences('theme_celene4boost_language'));
-        }elseif(get_config('local_celeneaccessibility', 'showguiding')){
+        } else if (get_config('local_celeneaccessibility', 'showguiding')) {
             return strtolower(get_config('local_celeneaccessibility', 'chooselanguage'));
-        }else{
+        } else {
             return "french";
         }
     }

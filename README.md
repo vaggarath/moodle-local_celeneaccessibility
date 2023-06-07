@@ -1,6 +1,6 @@
 # Celeneaccessibility
 
-## Important : This plugin is still in early bêta! It works fine so far but no "in depth" test has been performed yet.
+## Important : This plugin is still in early beta! It works fine so far but no "in depth" test has been performed yet.
 Another important thing to take in consideration is that this plugin doesn't have the purpose to bypass moodle in core accessibility functionnality but to propose other tools to enhance / provide better experience if possible.
 Even more important: In no way does this plugin should be used as an excuse for content writers to not follow accessibility rules. Moodle has several guidelines for good practices to follow when creating content and they should be respected from start to end.
 
@@ -53,126 +53,50 @@ Below is how i worked around it :
 
 `$templatecontext = [`
     `...`
-    `'bodyattributes' => $OUTPUT->body_attributes``(\theme_celene4boost\extraclasses::getExtraClasses()),`
-    `'theme_mode' => \theme_celene4boost\extraclasses::darkMode() ? 'dark' : null,`
-    `'bgnavbar' => \theme_celene4boost\extraclasses::darkMode() ? 'bg-dark' : null,`
-    `'language' => \theme_celene4boost\extraclasses::getLanguage(),`
+    `'bodyattributes' => $OUTPUT->body_attributes``(\local_celeneaccessibility\extraclasses::get_extra_classes()),`
+    `'theme_mode' => \local_celeneaccessibility\extraclasses::dark_mode() ? 'dark' : null,`
+    `'bgnavbar' => \local_celeneaccessibility\extraclasses::dark_mode() ? 'bg-dark' : null,`
+    `'language' => \local_celeneaccessibility\extraclasses::get_language(),`
 `];`
 
-// in a separate class file i went like this
+While there isn't anything in particular to do for the TTS option, the reading helper will also need a bit of tweaking in the theme.
+Be it the boost theme or a child of it, you'll have to add a bit of html into the `drawers.mustache` file in the templates folder of your theme.
 
-`class extraclasses{`
-    `protected $classes = array();`
+Here is how i went :
 
-    public static function getExtraClasses() : array {
-
-        /**
-         * the follow values are all the options developped. You're free to remove the unwanted ones. You're even free to add more
-         */
-
-        $mode = get_user_preferences('theme_celene4boost_mode');
-        if ($mode == 'dark') {
-            $eclasses[] = 'bg-dark';
-        }
-
-        //letter spacing
-        $letterspacing = null;
-        if(get_user_preferences('theme_celene4boost_letter')){
-            $pref = get_user_preferences('theme_celene4boost_letter');
-            $letterspacing = "ls".$pref;
-            $mode .= ' '.$letterspacing;
-        }
-
-        $letter = get_user_preferences('theme_celene4boost_letter') && get_user_preferences('theme_celene4boost_letter') ? "ls".get_user_preferences('theme_celene4boost_letter') : '';
-        if($letter){
-            $eclasses[] =$letter;
-        }
-
-        $word = get_user_preferences('theme_celene4boost_word') && get_user_preferences('theme_celene4boost_word') ? "ws".get_user_preferences('theme_celene4boost_word') : '';
-        if($word){
-            $eclasses[] =$word;
-        }
-
-        $line = get_user_preferences('theme_celene4boost_line') && get_user_preferences('theme_celene4boost_line') ? "linesp".get_user_preferences('theme_celene4boost_line') : '';
-        if($line){
-            $eclasses[] =$line;
-        }
-
-        $dys = get_user_preferences('theme_celene4boost_dys') ? "dys" : '';
-        if($dys){
-            $eclasses[] =$dys;
-        }
-
-        $parkinson = get_user_preferences('theme_celene4boost_parkinson') ? "parkinson" : '';
-        if($parkinson){
-            $eclasses[] =$parkinson;
-        }
-
-        $tts = get_user_preferences('theme_celene4boost_tts') ? "tts" : '';
-        if($tts){
-            $eclasses[] =$tts;
-        }
-
-        $texttransform = get_user_preferences('theme_celene4boost_texttransform');
-        if($texttransform){
-            switch($texttransform){
-                case "0" :
-                    $eclasses[] ="";
-                    break;
-                case "1" :
-                    $eclasses[] ="majuscule";
-                    break;
-                case "2" :
-                    $eclasses[] ="minuscule";
-                    break;
-                case "3" :
-                    $eclasses[] ="capitale";
-                    break;
-                default: $eclasses[] = "";
-            }
-        }
-
-        $fontsize = get_user_preferences('theme_celene4boost_fontsize') && get_user_preferences('theme_celene4boost_fontsize') ? "fsa".get_user_preferences('theme_celene4boost_fontsize') : '';
-        if($fontsize){
-            $eclasses[] =$fontsize;
-        }
-
-
-        $font = get_user_preferences('theme_celene4boost_font') ? get_user_preferences('theme_celene4boost_font') : '';
-        if($font){
-            $eclasses[] =$font;
-        }
-
-        $guiding = get_user_preferences('theme_celene4boost_guiding') ? true : false;
-        if($guiding){
-            $eclasses[] = "guiding";
-        }
-
-        $lowsat = get_user_preferences('theme_celene4boost_lowsat') ? "lowsat".get_user_preferences('theme_celene4boost_lowsat') : '';
-        if($lowsat){
-            $eclasses[] =$lowsat;
-        }
-
-        $intensity = get_user_preferences('theme_celene4boost_blue') ? "blue-filter-strong" : '';
-        if($intensity){
-            $eclasses[] = $intensity;
-        }
-
-        $lastPlay = isset($eclasses) && !empty($eclasses) ? $eclasses : [];
-
-        return $lastPlay;
-    }
-
-    public static function darkMode() : bool {
-        $mode = get_user_preferences('theme_celene4boost_mode');
-        if ($mode == 'dark') {
-            return true;
-        }else{
-            return false;
-        }
-    }
-`}`
 `
+``{{#guiding}}``
+
+    {{! if guiding is true. CF layout/drawers.php }}
+
+    {{#js}}
+
+    require (['core/first'],function(){
+
+            require(['local_celeneaccessibility/guiding','core/log'],function(fu,log){
+
+        });
+
+    });
+
+    {{/js}}
+    <div id="reading-line" class="d-none">
+
+        <div id="readingLine" draggable="true"  class="d-none">
+            <div class='resizers'>
+                <div class='resizer top-left'></div>
+                <div class='resizer top-right'></div>
+                {{! <div class='resizer bottom-left'></div>
+                <div class='resizer bottom-right'></div> }}
+            </div>
+        </div>
+    </div>
+    <span class="celeneguidingHelp">{{#str}}guidinghelp, local_celeneaccessibility{{/str}}</span>
+
+``{{/guiding}}``
+
+`
+
 ### The dark mode
 It's the tricky part.
 The way we worked around it is quite specific to our way of proposing the option before this plugin came to development.
@@ -201,3 +125,5 @@ If it's the chosen option, the way to do is pretty straight forward : Go to admi
 ![preview](./accessibilite-2-down.png "preview 2")
 ![preview](./accessibilite-3-TTS.png "preview 3")
 ![preview](./stats.png "Admin stats")
+![preview](./guiding.png "Admin stats")
+![preview](./guiding2.png "Admin stats")

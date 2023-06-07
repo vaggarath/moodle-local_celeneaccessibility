@@ -10,61 +10,61 @@
     font-style: normal;
     font-weight: normal;
 }
-body.ls2 {
+body.celenels2 {
     letter-spacing: 0.3rem !important;
 }
-body.ls2 .maincalendar .calendarmonth td .day-number-circle .day-number{
+body.celenels2 .maincalendar .calendarmonth td .day-number-circle .day-number{
     padding:0 !important;
 }
-body.ls1 .maincalendar .calendarmonth td .day-number-circle .day-number{
+body.celenels1 .maincalendar .calendarmonth td .day-number-circle .day-number{
     padding:0 !important;
 }
-body.ls1 {
+body.celenels1 {
     letter-spacing: 0.2rem !important;
 }
-body.ws1 {
+body.celenews1 {
     word-spacing: 0.2rem !important;
 }
-body.ls1 .nav, body.ls2 .nav {
+body.celenels1 .nav, body.celenels2 .nav {
     letter-spacing: normal !important;
 }
 svg > text {
     letter-spacing: normal !important;
 }
-body.ws2 {
+body.celenews2 {
     word-spacing: 0.3rem !important;
 }
-body.linesp1 {
+body.celenelinesp1 {
     line-height: 2rem;
 }
-body.linesp2 {
+body.celenelinesp2 {
     line-height: 2.5rem;
 }
 
 /*font family*/
 
-body.dys {
+body.celenedys {
     font-family: "OpenDyslexic" !important;
 }
 
-body.arial {
+body.celenearial {
     font-family: "Arial", sans-serif !important;
 }
 
-body.verdana{
+body.celeneverdana{
     font-family: Verdana, sans-serif !important;
 }
 
-body.courier {
+body.celenecourier {
     font-family: 'Courier New', monospace !important;
 }
 
-body.andika {
+body.celeneandika {
     font-family: "andika", monospace !important;
 }
 
 /*troubles moteurs*/
-body.parkinson a:not(.card-img-overlay a):hover, body.parkinson button:hover, body.parkinson input:hover, body.parkinson a:not(.card-img-overlay a):focus, body.parkinson a:not(.card-img-overlay a):focus-visible, body.parkinson select:hover, body.parkinson select:focus {
+body.celeneparkinson a:not(.card-img-overlay a):hover, body.celeneparkinson button:hover, body.celeneparkinson input:hover, body.celeneparkinson a:not(.card-img-overlay a):focus, body.celeneparkinson a:not(.card-img-overlay a):focus-visible, body.celeneparkinson select:hover, body.celeneparkinson select:focus {
     text-align: center !important;
     transform: scale(1.5) !important;
     border: thick double #424a54 !important;
@@ -76,74 +76,74 @@ body.parkinson a:not(.card-img-overlay a):hover, body.parkinson button:hover, bo
     transform: scale(0) !important;
 }
 
-body.parkinson .btn:hover {
+body.celeneparkinson .btn:hover {
     display: flex;
     justify-content: center;
 }
-body.fsa1 {
+body.celenefsa1 {
     font-size: x-large !important;
     line-height: 2rem;
 }
 
-body.fsa1 .maincalendar .calendarmonth td .day-number-circle .day-number {
+body.celenefsa1 .maincalendar .calendarmonth td .day-number-circle .day-number {
     padding: 0 !important;
 }
 
-body.fsa2 .maincalendar .calendarmonth td .day-number-circle .day-number {
+body.celenefsa2 .maincalendar .calendarmonth td .day-number-circle .day-number {
     padding: 0 !important;
 }
 
-body.fsa3 .maincalendar .calendarmonth td .day-number-circle .day-number {
+body.celenefsa3 .maincalendar .calendarmonth td .day-number-circle .day-number {
     padding: 0 !important;
 }
 
-body.fsa1 .maincalendar .calendarmonth td .day-number-circle {
+body.celenefsa1 .maincalendar .calendarmonth td .day-number-circle {
     line-height: inherit !important;
     width: fit-content !important;
     height: fit-content !important;
 }
-body.fsa2 .maincalendar .calendarmonth td .day-number-circle {
+body.celenefsa2 .maincalendar .calendarmonth td .day-number-circle {
     line-height: inherit !important;
     width: fit-content !important;
     height: fit-content !important;
 }
-body.fsa3 .maincalendar .calendarmonth td .day-number-circle {
+body.celenefsa3 .maincalendar .calendarmonth td .day-number-circle {
     line-height: inherit !important;
     height: fit-content !important;
     width: fit-content !important;
 }
 
-body.fsa2 {
+body.celenefsa2 {
     font-size: xx-large !important;
     line-height: 2.5rem;
 }
-body.fsa3 {
+body.celenefsa3 {
     font-size: xxx-large !important;
     line-height: 3rem;
 }
 
 /* header menu */
-body.fsa1 .navbar, body.fsa2 .navbar, body.fsa3 .navbar{
+body.celenefsa1 .navbar, body.celenefsa2 .navbar, body.celenefsa3 .navbar{
     font-size: medium !important;
     line-height: normal !important;
 }
 
-body.lowsat1 img {
+body.celenelowsat1 img {
     filter: saturate(50%);
 }
-body.lowsat2 img {
+body.celenelowsat2 img {
     filter: saturate(0);
 }
-body.lowsat3 img {
+body.celenelowsat3 img {
     filter: saturate(2);
 }
-body.lowsat4 img {
+body.celenelowsat4 img {
     filter: saturate(3);
 }
 #tts-option-card {
     color: #fff !important;
 }
-body.guiding #reading-line {
+body.celeneguiding #reading-line {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -151,7 +151,7 @@ body.guiding #reading-line {
     right: 0;
     z-index: 99999;
 }
-.guidingHelp {
+.celeneguidingHelp {
     position: absolute;
     font-size: 1.5rem;
     font-weight: bolder;
@@ -160,7 +160,7 @@ body.guiding #reading-line {
     color: #45a59d !important;
     z-index: 9999 !important;
 }
-body.guiding #reading-line > div {
+body.celeneguiding #reading-line > div {
     position: absolute;
     top: calc(50% - 50px);
     left: 0;
@@ -171,7 +171,7 @@ body.guiding #reading-line > div {
     max-height: 50vh;
     cursor: move;
 }
-body.guiding #reading-line > div:before, body.guiding #reading-line > div:after {
+body.celeneguiding #reading-line > div:before, body.celeneguiding #reading-line > div:after {
     content: "";
     position: absolute;
     height: 100vh;
@@ -180,13 +180,13 @@ body.guiding #reading-line > div:before, body.guiding #reading-line > div:after 
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: none;
 }
-body.guiding #reading-line > div:before {
+body.celeneguiding #reading-line > div:before {
     bottom: 100%;
 }
-body.guiding #reading-line > div:after {
+body.celeneguiding #reading-line > div:after {
     top: 100%;
 }
-body.guiding .ui-resizable-handle {
+body.celeneguiding .ui-resizable-handle {
     position: absolute;
     cursor: row-resize;
     height: 30px;
@@ -195,25 +195,25 @@ body.guiding .ui-resizable-handle {
     transform: translateX(-50%);
     background-color: green;
 }
-body.guiding .ui-resizable-handle.ui-resizable-n {
+body.celeneguiding .ui-resizable-handle.ui-resizable-n {
     bottom: 100%;
     margin-bottom: 10px;
 }
-body.guiding .ui-resizable-handle.ui-resizable-s {
+body.celeneguiding .ui-resizable-handle.ui-resizable-s {
     top: 100%;
     margin-top: 10px;
 }
 /*************************************************************
 *Resizer for guiding line                                    *
 *************************************************************/
-body.guiding .resizers{
+body.celeneguiding .resizers{
     width: 100%;
     height: 100%;
     border: 3px solid #45a59d;
     box-sizing: border-box;
 }
 
-body.guiding .resizers .resizer{
+body.celeneguiding .resizers .resizer{
     width: 10px;
     height: 10px;
     border-radius: 50%; /*magic to turn square into circle*/
@@ -222,22 +222,22 @@ body.guiding .resizers .resizer{
     position: absolute;
 }
 
-body.guiding .resizers .resizer.top-left {
+body.celeneguiding .resizers .resizer.top-left {
     left: 5px;
     top: 5px;
     cursor: nwse-resize; /*resizer cursor*/
 }
-body.guiding .resizers .resizer.top-right {
+body.celeneguiding .resizers .resizer.top-right {
     right: 5px;
     top: 5px;
     cursor: nesw-resize;
 }
-body.guiding .resizers .resizer.bottom-left {
+body.celeneguiding .resizers .resizer.bottom-left {
     left: 5px;
     bottom: 5px;
     cursor: nesw-resize;
 }
-body.guiding .resizers .resizer.bottom-right {
+body.celeneguiding .resizers .resizer.bottom-right {
     right: 5px;
     bottom: 5px;
     cursor: nwse-resize;
@@ -246,13 +246,13 @@ body.guiding .resizers .resizer.bottom-right {
 
 
 
-body.majuscule * {
+body.celenemajuscule * {
     text-transform: uppercase !important;
 }
-body.minuscule * {
+body.celeneminuscule * {
     text-transform: lowercase !important;
 }
-body.capitale * {
+body.celenecapitale * {
     text-transform: capitalize !important;
 }
 
@@ -268,7 +268,7 @@ body.capitale * {
     border-radius: 5px;
     border: 2px solid #eee;
 }
-body.ls1 > #context-menu, body.ls2 > #context-menu {
+body.celenels1 > #context-menu, body.celenels2 > #context-menu {
     width: 300px;
 }
 #context-menu .item {
@@ -281,7 +281,7 @@ body.ls1 > #context-menu, body.ls2 > #context-menu {
 #context-menu .item:hover {
     background: #343434;
 }
-.button.pause {
+.celenebutton.pause {
     width: 74px;
     height: 74px;
     border-style: solid;
@@ -295,7 +295,7 @@ body.ls1 > #context-menu, body.ls2 > #context-menu {
     right: 0px;
     z-index: 9999;
 }
-.contextTitle {
+.celenecontextTitle {
     font-size: 1.5rem;
     color: #eee;
     font-weight: bold;
@@ -305,11 +305,11 @@ body.ls1 > #context-menu, body.ls2 > #context-menu {
     fill: #45a59d;
     width: 7.3em;
 }
-.highlight {
+.celenehighlight {
     background-color: #45a59d !important;
     color: #202020 !important;
 }
-.highlightedWord {
+.celenehighlightedWord {
     background-color: yellow !important;
     color: #202020 !important;
 }
@@ -448,7 +448,7 @@ img.satdemo{
     right: 0;
 }
 
-body.blue-filter-light:before {
+body.celeneblue-filter-light:before {
     pointer-events: none !important;
     content: '' !important;
     position: fixed !important;
@@ -460,7 +460,7 @@ body.blue-filter-light:before {
     mix-blend-mode: multiply !important;
   }
 
-  body.blue-filter-strong:after {
+  body.celeneblue-filter-strong:after {
     pointer-events: none !important;
     content: '' !important;
     position: fixed !important;
@@ -522,7 +522,7 @@ body.blue-filter-light:before {
     color: #202020;
   }
 
-  html.black fieldset .filter-group label,
+  html.dark fieldset .filter-group label,
   html.dark .path-grade-report-grader .gradeparent .userrow.odd .cell, html.dark .path-grade-report-grader .gradeparent .floater .cell.odd, html.dark .path-grade-report-grader .gradeparent .heading .cell, html.dark .path-grade-report-grader .gradeparent .cell.category, html.dark .path-grade-report-grader .gradeparent .avg .cell{
     color: #202020;
   }

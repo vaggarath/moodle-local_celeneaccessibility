@@ -94,3 +94,4 @@ $string['statsname'] = "Statistics";
 $string['notallowed'] = "You're not allowed to see this content";
 $string['seestats'] = "See the usage statistics";
 $string['nbusrs'] = 'There is {$a} active users';
+$string['guidinghelp']="Press escape to activate / deactivate the guiding tool";

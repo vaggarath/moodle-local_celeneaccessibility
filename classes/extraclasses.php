@@ -136,9 +136,9 @@ class extraclasses {
             $eclasses[] = $intensity;
         }
 
-        $last_play = isset($eclasses) && !empty($eclasses) ? $eclasses : [];
+        $lastplay = isset($eclasses) && !empty($eclasses) ? $eclasses : [];
 
-        return $last_play;
+        return $lastplay;
     }
 
     /**

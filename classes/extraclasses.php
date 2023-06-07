@@ -19,11 +19,10 @@ namespace local_celeneaccessibility;
 /**
  * extraclasses
  *
-* @package      celeneaccessibility
-* @author       jchambon@univ-tours.fr
+ * @package      local_celeneaccessibility
+ * @author       jchambon@univ-tours.fr
  */
-class extraclasses
-{
+class extraclasses {
     /**
      * classes
      *
@@ -115,7 +114,6 @@ class extraclasses
             $eclasses[] = $fontsize;
         }
 
-
         $font = get_user_preferences('theme_celene4boost_font') ? get_user_preferences('theme_celene4boost_font') : '';
         if ($font) {
             $eclasses[] = $font;
@@ -138,9 +136,9 @@ class extraclasses
             $eclasses[] = $intensity;
         }
 
-        $lastPlay = isset($eclasses) && !empty($eclasses) ? $eclasses : [];
+        $last_play = isset($eclasses) && !empty($eclasses) ? $eclasses : [];
 
-        return $lastPlay;
+        return $last_play;
     }
 
     /**
